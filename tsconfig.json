@@ -9,8 +9,9 @@
     "allowJs": true,
     "checkJs": false,
     "jsx": "react-jsx",
+    "resolveJsonModule": true,
     "noEmit": true,
     "strict": false
   },
-  "include": ["src/**/*.js", "src/**/*.jsx"]
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts"]
 }

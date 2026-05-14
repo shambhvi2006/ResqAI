@@ -100,6 +100,35 @@ button {
   color: #111111;
 }
 
+.offline-banner {
+  position: sticky;
+  top: 0;
+  z-index: 140;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 16px;
+  background: #f59e0b;
+  color: #111111;
+  border-bottom: 1px solid #b45309;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.offline-banner button {
+  min-height: 36px;
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  border: 1px solid rgba(17, 17, 17, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.42);
+  color: #111111;
+  cursor: pointer;
+  font-weight: 800;
+}
+
 .app-main {
   flex: 1;
   padding-bottom: 112px;
@@ -272,6 +301,31 @@ button {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+.voice-waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+}
+
+.voice-waveform span {
+  width: 4px;
+  height: 8px;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.voice-waveform--active span {
+  background: #dc2626;
+  animation: voiceWave 700ms ease-in-out infinite alternate;
+}
+
+@keyframes voiceWave {
+  from { height: 8px; }
+  to { height: 32px; }
 }
 
 .fade-in {
@@ -535,6 +589,58 @@ textarea:focus {
   font-weight: 800;
 }
 
+.cpr-guide {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.cpr-guide h3 {
+  font-size: 20px;
+  color: #111111;
+}
+
+.cpr-guide p {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.cpr-metronome {
+  width: 80px;
+  height: 80px;
+  min-height: 80px;
+  border: 0;
+  border-radius: 50%;
+  background: #dc2626;
+  cursor: pointer;
+}
+
+.cpr-metronome--active {
+  animation: cprPulse 582ms ease-in-out infinite;
+}
+
+.cpr-beat-text {
+  color: #dc2626;
+  font-size: 16px;
+}
+
+.cpr-beat-text--active {
+  animation: cprBeatText 582ms ease-in-out infinite;
+}
+
+@keyframes cprPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes cprBeatText {
+  0% { opacity: 0.72; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 0.72; transform: scale(1); }
+}
+
 .center-screen,
 .center-card {
   align-items: center;
@@ -649,6 +755,26 @@ textarea:focus {
   background: var(--red-glow);
   color: #991b1b;
   font: inherit;
+}
+
+.update-toast {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 156px;
+  z-index: 130;
+  max-width: 448px;
+  min-height: 52px;
+  margin: 0 auto;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #111111;
+  color: #ffffff;
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
 }
 
 .bottom-tabs {
