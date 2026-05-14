@@ -16,6 +16,24 @@ function AppHeader() {
   );
 }
 
+function BottomTabs({ phase, dispatch }) {
+  const goHome = () => dispatch({ type: "SET_PHASE", payload: "selection" });
+  const goTriage = () => dispatch({ type: "SET_PHASE", payload: "wound" });
+  const goGuides = () => dispatch({ type: "SET_PHASE", payload: "protocol" });
+  const callSos = () => {
+    window.location.href = "tel:108";
+  };
+
+  return (
+    <nav className="bottom-tabs" aria-label="Primary navigation">
+      <button className={phase === "selection" ? "active" : ""} onClick={goHome}>Home</button>
+      <button className={["wound", "emergencyHelp", "inventory"].includes(phase) ? "active" : ""} onClick={goTriage}>Triage</button>
+      <button className={["protocol", "report"].includes(phase) ? "active" : ""} onClick={goGuides}>Guides</button>
+      <button className="sos-pill" onClick={callSos}>SOS</button>
+    </nav>
+  );
+}
+
 const PHASES = ["selection", "wound", "inventory", "protocol", "report"];
 
 function StepBar({ current }) {
@@ -72,6 +90,7 @@ export default function App() {
         </button>
       )}
       <main className="app-main">{renderScreen()}</main>
+      <BottomTabs phase={phase} dispatch={dispatch} />
     </>
   );
 }

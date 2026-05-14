@@ -39,19 +39,19 @@ export default function LanguageSelect() {
         <div style={{
           width: 72,
           height: 72,
-          borderRadius: 20,
-          background: "linear-gradient(135deg, #0f2318 0%, #1a3a28 100%)",
-          border: "1px solid rgba(34,197,94,0.25)",
+          borderRadius: 12,
+          background: "#ffffff",
+          border: "1px solid var(--border)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           margin: "0 auto 20px",
-          boxShadow: "0 0 40px rgba(34,197,94,0.15)",
+          boxShadow: "var(--shadow-card)",
         }}>
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
             <path d="M18 4C10.27 4 4 10.27 4 18s6.27 14 14 14 14-6.27 14-14S25.73 4 18 4z"
-              stroke="#22c55e" strokeWidth="1.5" fill="none" />
-            <path d="M18 10v16M10 18h16" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" />
+              stroke="#111111" strokeWidth="1.5" fill="none" />
+            <path d="M18 10v16M10 18h16" stroke="#111111" strokeWidth="2.5" strokeLinecap="round" />
           </svg>
         </div>
 
@@ -149,7 +149,7 @@ export default function LanguageSelect() {
               </div>
               {selected === lang.code && (
                 <svg style={{ marginLeft: "auto" }} width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8l3.5 3.5L13 4.5" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M3 8l3.5 3.5L13 4.5" stroke="#111111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               )}
             </button>
@@ -209,13 +209,13 @@ export default function LanguageSelect() {
         gap: 10,
         padding: "12px 14px",
         borderRadius: "var(--radius-sm)",
-        background: "rgba(245,158,11,0.07)",
-        border: "1px solid rgba(245,158,11,0.15)",
+        background: "#ffffff",
+        border: "1px solid var(--border)",
         marginBottom: 24,
       }}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: 1 }}>
-          <path d="M8 1.5L14.5 13H1.5L8 1.5z" stroke="#f59e0b" strokeWidth="1.5" />
-          <path d="M8 6v3.5M8 11v.5" stroke="#f59e0b" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M8 1.5L14.5 13H1.5L8 1.5z" stroke="#111111" strokeWidth="1.5" />
+          <path d="M8 6v3.5M8 11v.5" stroke="#111111" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
         <p style={{ fontSize: 12, color: "var(--amber-warn)", lineHeight: 1.5 }}>
           <strong>Not a substitute for medical care.</strong> For severe injuries, call emergency services immediately.
