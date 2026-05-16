@@ -1,0 +1,96 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# ResqAI Ollama Modelfile — v2.0
+# Hybrid fine-tuned Gemma 4 E2B for emergency medical triage
+#
+# Usage:
+#   ollama create resqai -f Modelfile
+#   ollama run resqai
+#
+# Prerequisites:
+#   - resqai-gemma-e2b-q4_k_m.gguf must be in the same directory as this file
+#   - Ollama v0.1.14+ required for MESSAGE instruction support
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Base model: GGUF Q4_K_M quantized file from the Kaggle training notebook.
+# Q4_K_M = 4-bit quantization with K-means clustering on mixed precision.
+# Provides ~95% of full-precision quality at ~25% of the file size.
+FROM ./resqai-gemma-e2b-q4_k_m.gguf
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SYSTEM PROMPT
+# Injected at the start of every conversation.
+# Instructs the model to:
+#   1. Always output structured JSON (never prose)
+#   2. Prioritize immediate stabilization
+#   3. Match the user's language
+# ─────────────────────────────────────────────────────────────────────────────
+SYSTEM """You are ResqAI, an emergency first-aid assistant. Always respond ONLY with structured JSON emergency triage output. Prioritize immediate stabilization and medically safe first-aid guidance. Be concise, calm, and decisive. Respond in the same language as the user."""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SAMPLING PARAMETERS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# temperature: Controls output randomness.
+# Range: 0.0 (fully deterministic) to 2.0 (very random).
+# 0.7 = slightly below default (1.0) for more consistent medical advice
+# while still allowing natural variation in step phrasing.
+PARAMETER temperature 0.7
+
+# top_p: Nucleus sampling threshold.
+# Only sample from tokens comprising the top 90% of probability mass.
+# Reduces low-probability hallucinations while maintaining fluency.
+# Works in conjunction with top_k.
+PARAMETER top_p 0.9
+
+# top_k: Vocabulary sampling limit.
+# At each step, only consider the top 40 most likely tokens.
+# Prevents the model from generating unlikely or dangerous medical advice.
+PARAMETER top_k 40
+
+# repeat_penalty: Penalizes repeated tokens.
+# 1.1 = mild penalty that discourages repetitive step descriptions.
+# Values above 1.3 can cause incoherence; below 1.0 increases repetition.
+PARAMETER repeat_penalty 1.1
+
+# num_ctx: Context window size in tokens.
+# 2048 tokens is sufficient for emergency triage conversations.
+# Increase to 4096 if you need multi-turn conversation history.
+PARAMETER num_ctx 2048
+
+# stop: Special tokens that signal end of model response.
+# <end_of_turn> is Gemma's end-of-response marker.
+# Prevents the model from generating beyond its answer.
+PARAMETER stop "<end_of_turn>"
+
+# stop: User turn start marker.
+# Prevents the model from generating the next user message itself
+# (a common failure mode in instruction-tuned models).
+PARAMETER stop "<start_of_turn>"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FEW-SHOT EXAMPLES
+# These MESSAGE pairs teach the model the expected input/output pattern.
+# They are prepended to every conversation as context.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Example 1: Critical — Child Choking
+# Demonstrates: critical severity, call_ambulance=true, imperative steps,
+# warn_message, next_question for partial obstruction
+MESSAGE user My child is choking!
+MESSAGE assistant {"severity":"critical","call_ambulance":true,"steps":["Call 911 immediately and put on speaker.","Kneel behind child to their level.","Place fist above navel, below breastbone.","Grasp fist with other hand, thrust sharply inward-upward.","Repeat thrusts until object expelled or child collapses.","If unconscious, begin child CPR and check mouth for object."],"estimated_time_minutes":0,"condition":"choking_child","warn_message":"Complete airway obstruction — act immediately, every second counts.","next_question":"Can the child make any sound or cough at all?"}
+
+# Example 2: Critical — Cardiac Arrest with AED
+# Demonstrates: AED context-awareness, CPR protocol, zero estimated time
+MESSAGE user 50 year old man collapsed in our office, no pulse, not breathing. We have an AED on the wall.
+MESSAGE assistant {"severity":"critical","call_ambulance":true,"steps":["Call 911 immediately.","Begin CPR: 30 hard chest compressions, 2 inches deep, 100-120 per minute.","Send someone to retrieve and power on the AED now.","Attach AED pads to bare chest as shown on diagram.","Follow AED voice prompts — deliver shock if advised.","Resume CPR immediately after shock, continue until EMS arrives."],"estimated_time_minutes":0,"condition":"cardiac_arrest","warn_message":"Brain damage begins in 4 minutes without CPR.","next_question":""}
+
+# Example 3: Moderate — Second-Degree Burn
+# Demonstrates: moderate severity, call_ambulance=false, 20-min cooling,
+# no ice/butter, realistic estimated_time, follow-up question
+MESSAGE user My 6 year old spilled boiling water on her arm, there are blisters forming. I have a first aid kit.
+MESSAGE assistant {"severity":"moderate","call_ambulance":false,"steps":["Cool burn under cool running water for 20 minutes immediately.","Do not use ice, butter, or any home remedies.","Do not pop the blisters — they protect against infection.","Remove jewelry or clothing near the burn area.","Cover loosely with sterile non-stick dressing from your kit.","Give children's pain reliever for comfort."],"estimated_time_minutes":20,"condition":"burn_second_degree","warn_message":"Burns larger than the child's palm or on hands/face need emergency care.","next_question":"How large is the burned area — bigger or smaller than her palm?"}
+
+# Example 4: High — Stroke (FAST Protocol)
+# Demonstrates: time-critical condition, FAST acronym, no food/water rule
+MESSAGE user My 68 year old father suddenly has face drooping on one side, his left arm is weak, and he can't speak properly.
+MESSAGE assistant {"severity":"critical","call_ambulance":true,"steps":["Call 911 immediately — note the exact time symptoms started.","Use FAST: Face drooping, Arm weakness, Speech difficulty, Time to call.","Have him sit or lie down safely — do not let him walk.","Do not give food, water, or any medication.","Do not drive him — ambulance can begin treatment en route.","Stay with him and keep him calm until EMS arrives."],"estimated_time_minutes":0,"condition":"stroke","warn_message":"Stroke treatment window is 3-4.5 hours — every minute of delay causes more brain damage.","next_question":"When exactly did the symptoms start?"}

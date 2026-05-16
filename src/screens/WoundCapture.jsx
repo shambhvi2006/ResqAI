@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Camera } from "lucide-react";
+import AIModeIndicator from "../components/AIModeIndicator.jsx";
+import EmergencyCard from "../components/EmergencyCard.jsx";
 import HospitalDirections from "../components/HospitalDirections.jsx";
+import SeverityBanner from "../components/SeverityBanner.jsx";
 import { useSession } from "../context/SessionContext.jsx";
 import { triageEmergency } from "../services/gemmaService";
 
@@ -189,6 +192,7 @@ export default function WoundCapture() {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [severity, setSeverity] = useState(null);
   const [condition, setCondition] = useState("");
+  const [aiSource, setAiSource] = useState("cloud");
   const [transcript, setTranscript] = useState("");
   const [typedText, setTypedText] = useState("");
   const [confirmationTranscript, setConfirmationTranscript] = useState("");
@@ -716,6 +720,7 @@ export default function WoundCapture() {
         nextQuestionRef.current = result.next_question || "";
         setSeverity(result.severity);
         setCondition(result.condition || "");
+        setAiSource(result._source || "cloud");
 
         if (stage === "initial") {
           setConversationPhase("resources");
@@ -1103,23 +1108,21 @@ export default function WoundCapture() {
         </div>
       )}
 
-      {severity && <div className={`badge badge--${severity === "critical" ? "red" : "amber"}`}>{severity}</div>}
+      <div className="triage-status-row">
+        <SeverityBanner severity={severity} />
+        <AIModeIndicator source={aiSource} />
+      </div>
 
       <div style={{ flex: 1, overflowY: "auto", display: "grid", gap: 12, padding: "16px 0" }}>
         {currentSteps.map((step, index) => (
-          <button
+          <EmergencyCard
             key={`${step}-${index}`}
-            className="step-card"
             onClick={() => replayFromStep(index)}
-            style={{
-              cursor: "pointer",
-              opacity: index < currentStepIndex ? 0.6 : 1,
-              borderColor: index === currentStepIndex && appState === "speaking" ? "var(--red-alert)" : undefined,
-            }}
-          >
-            <span className="eyebrow">{index + 1}</span>
-            <span className="step-action">{step}</span>
-          </button>
+            step={step}
+            index={index}
+            completed={index < currentStepIndex}
+            active={index === currentStepIndex && appState === "speaking"}
+          />
         ))}
 
         {showCprGuide && (

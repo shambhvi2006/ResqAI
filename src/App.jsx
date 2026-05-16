@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import AIHealthPanel from "./components/AIHealthPanel.jsx";
 import { useSession } from "./context/SessionContext.jsx";
 import LanguageSelect from "./screens/LanguageSelect.jsx";
 import WoundCapture from "./screens/WoundCapture.jsx";
@@ -8,11 +9,10 @@ import HospitalReport from "./screens/HospitalReport.jsx";
 import EmergencyHelp from "./screens/EmergencyHelp.jsx";
 
 function AppHeader() {
-  const isLocal = import.meta.env.VITE_GEMMA_MODE === "local";
   return (
     <header className="app-header">
       <strong>ResQ<span>AI</span></strong>
-      {isLocal && <span className="badge badge--green">Local Mode</span>}
+      <AIHealthPanel />
     </header>
   );
 }

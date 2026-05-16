@@ -11,7 +11,7 @@ const CONFIG = {
     border: "#DC2626",
     color: "#DC2626",
   },
-  serious: {
+  high: {
     query: "urgent+care",
     fallbackQuery: "urgent+care+near+me",
     label: "Nearest Urgent Care ->",
@@ -20,7 +20,16 @@ const CONFIG = {
     border: "#F59E0B",
     color: "#92400E",
   },
-  minor: {
+  moderate: {
+    query: "urgent+care",
+    fallbackQuery: "urgent+care+near+me",
+    label: "Nearest Urgent Care ->",
+    fallbackLabel: "Find urgent care",
+    background: "#FFFBEB",
+    border: "#F59E0B",
+    color: "#92400E",
+  },
+  low: {
     query: "pharmacy",
     fallbackQuery: "pharmacy+near+me",
     label: "Nearest Pharmacy ->",
@@ -36,7 +45,7 @@ export default function HospitalDirections({ severity, condition }) {
   const [locationFailed, setLocationFailed] = useState(false);
   const [isOnline, setIsOnline] = useState(() => navigator.onLine);
 
-  const config = CONFIG[severity] || CONFIG.serious;
+  const config = CONFIG[severity] || CONFIG.high;
 
   useEffect(() => {
     const handleOnline = () => setIsOnline(true);
