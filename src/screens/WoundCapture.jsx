@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Camera } from "lucide-react";
+import HospitalDirections from "../components/HospitalDirections.jsx";
 import { useSession } from "../context/SessionContext.jsx";
 import { triageEmergency } from "../services/gemmaService";
 
@@ -8,6 +9,37 @@ const RESOURCE_QUESTION =
 
 const CPR_GUIDE_TEXT =
   "Place heel of your dominant hand on the centre of their chest. Stack your other hand on top, fingers interlaced and raised. Arms straight, lock your elbows. Push down 5-6cm - harder than you think. Release fully between compressions. Aim for 100-120 per minute.";
+
+const CPR_QUICK_MESSAGE = "My friend needs CPR. They are unconscious and not breathing.";
+const CPR_INTRO =
+  "Starting CPR guide. Place both hands on centre of chest. Lock your elbows. Starting beat now. Push on every pulse.";
+const CPR_POSTURE_MESSAGE =
+  "This person is performing CPR chest compressions on a person lying down. Look specifically at: 1. Are both hands stacked on the centre of the chest? 2. Are the arms straight with locked elbows? 3. Does the body position look correct for effective compressions? Respond with either 'Good technique' followed by one positive observation, OR 'Correction needed:' followed by ONE specific thing to fix. Keep response under 20 words.";
+const CPR_BPM = 103;
+const CPR_BEAT_INTERVAL = Math.round(60000 / CPR_BPM);
+
+let cprAudioContext = null;
+
+function createBeepSound(frequency = 880) {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+
+  cprAudioContext ||= new AudioContext();
+  if (cprAudioContext.state === "suspended") {
+    cprAudioContext.resume();
+  }
+
+  const oscillator = cprAudioContext.createOscillator();
+  const gainNode = cprAudioContext.createGain();
+  oscillator.connect(gainNode);
+  gainNode.connect(cprAudioContext.destination);
+  oscillator.type = "sine";
+  oscillator.frequency.value = frequency;
+  gainNode.gain.setValueAtTime(0.3, cprAudioContext.currentTime);
+  gainNode.gain.exponentialRampToValueAtTime(0.001, cprAudioContext.currentTime + 0.1);
+  oscillator.start(cprAudioContext.currentTime);
+  oscillator.stop(cprAudioContext.currentTime + 0.1);
+}
 
 const statusText = {
   idle: "Tap mic or type to begin",
@@ -66,10 +98,26 @@ function Waveform({ active }) {
   );
 }
 
-function needsCprGuide(result) {
-  const condition = String(result?.condition || "");
-  const steps = (result?.steps || []).join(" ").toLowerCase();
-  return condition === "cardiac_arrest" || steps.includes("compressions");
+function isCPRNeeded(result) {
+  if (!result) return false;
+  const condition = result.condition?.toLowerCase() || "";
+  const warnMessage = result.warn_message?.toLowerCase() || "";
+  const conditionMatch =
+    condition.includes("cardiac") ||
+    condition.includes("cpr") ||
+    condition.includes("arrest") ||
+    condition.includes("breathing");
+  const stepMatch = result.steps?.some((step) => {
+    const text = String(step || "").toLowerCase();
+    return (
+      text.includes("cpr") ||
+      text.includes("compress") ||
+      text.includes("chest") ||
+      text.includes("breathing")
+    );
+  });
+  const messageMatch = warnMessage.includes("cpr") || warnMessage.includes("breathing");
+  return conditionMatch || stepMatch || messageMatch;
 }
 
 function sanitizeBareHandsSteps(steps) {
@@ -140,6 +188,7 @@ export default function WoundCapture() {
   const [currentSteps, setCurrentSteps] = useState([]);
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [severity, setSeverity] = useState(null);
+  const [condition, setCondition] = useState("");
   const [transcript, setTranscript] = useState("");
   const [typedText, setTypedText] = useState("");
   const [confirmationTranscript, setConfirmationTranscript] = useState("");
@@ -154,14 +203,32 @@ export default function WoundCapture() {
   const [transcriptError, setTranscriptError] = useState("");
   const [showMicFallback, setShowMicFallback] = useState(false);
   const [micFallbackText, setMicFallbackText] = useState("");
+  const [cprBeatCount, setCprBeatCount] = useState(1);
+  const [beatPulse, setBeatPulse] = useState(false);
+  const [rescueBreathBeat, setRescueBreathBeat] = useState(false);
+  const [showPosturePrompt, setShowPosturePrompt] = useState(false);
+  const [postureRecording, setPostureRecording] = useState(false);
+  const [postureCountdown, setPostureCountdown] = useState(5);
+  const [postureFeedback, setPostureFeedback] = useState("");
+  const [postureFeedbackGood, setPostureFeedbackGood] = useState(false);
+  const [postureSubmitted, setPostureSubmitted] = useState(false);
+  const [showPosturePhotoFallback, setShowPosturePhotoFallback] = useState(false);
 
   const recognitionRef = useRef(null);
   const fileInputRef = useRef(null);
+  const posturePhotoInputRef = useRef(null);
+  const postureVideoRef = useRef(null);
   const mountedRef = useRef(false);
   const timeoutRef = useRef(null);
   const confirmationTimerRef = useRef(null);
   const listeningFallbackTimerRef = useRef(null);
   const recognitionStartTimerRef = useRef(null);
+  const metronomeRef = useRef(null);
+  const beatPulseTimerRef = useRef(null);
+  const rescueBreathTimerRef = useRef(null);
+  const posturePromptTimerRef = useRef(null);
+  const postureCountdownTimerRef = useRef(null);
+  const postureStreamRef = useRef(null);
   const hasProcessedRef = useRef(false);
   const runIdRef = useRef(0);
   const stateRef = useRef("idle");
@@ -174,6 +241,7 @@ export default function WoundCapture() {
   const thumbnailUrlRef = useRef("");
   const imageBase64Ref = useRef("");
   const confirmTranscriptRef = useRef(null);
+  const cprAutoSubmittedRef = useRef(false);
 
   useEffect(() => {
     stateRef.current = appState;
@@ -215,6 +283,41 @@ export default function WoundCapture() {
     }
   }, []);
 
+  const clearCprTimers = useCallback(() => {
+    if (metronomeRef.current) {
+      window.clearInterval(metronomeRef.current);
+      metronomeRef.current = null;
+    }
+    if (beatPulseTimerRef.current) {
+      window.clearTimeout(beatPulseTimerRef.current);
+      beatPulseTimerRef.current = null;
+    }
+    if (rescueBreathTimerRef.current) {
+      window.clearTimeout(rescueBreathTimerRef.current);
+      rescueBreathTimerRef.current = null;
+    }
+    if (posturePromptTimerRef.current) {
+      window.clearTimeout(posturePromptTimerRef.current);
+      posturePromptTimerRef.current = null;
+    }
+    setBeatPulse(false);
+    setRescueBreathBeat(false);
+  }, []);
+
+  const clearPostureRecording = useCallback(() => {
+    if (postureCountdownTimerRef.current) {
+      window.clearInterval(postureCountdownTimerRef.current);
+      postureCountdownTimerRef.current = null;
+    }
+    postureStreamRef.current?.getTracks().forEach((track) => track.stop());
+    postureStreamRef.current = null;
+    if (postureVideoRef.current) {
+      postureVideoRef.current.srcObject = null;
+    }
+    setPostureRecording(false);
+    setPostureCountdown(5);
+  }, []);
+
   const clearImage = useCallback(() => {
     if (thumbnailUrlRef.current) {
       URL.revokeObjectURL(thumbnailUrlRef.current);
@@ -227,8 +330,9 @@ export default function WoundCapture() {
   }, []);
 
   const stopMetronome = useCallback(() => {
+    clearCprTimers();
     setMetronomeRunning(false);
-  }, []);
+  }, [clearCprTimers]);
 
   const speakText = useCallback((text, onEnd) => {
     if (!text || !window.speechSynthesis) {
@@ -246,6 +350,156 @@ export default function WoundCapture() {
     utterance.onerror = () => onEnd?.();
     window.speechSynthesis.speak(utterance);
   }, []);
+
+  const startMetronome = useCallback(() => {
+    clearCprTimers();
+    setCprBeatCount(0);
+    setShowPosturePrompt(false);
+    setMetronomeRunning(true);
+
+    metronomeRef.current = window.setInterval(() => {
+      setCprBeatCount((prev) => {
+        const next = prev >= 30 ? 1 : prev + 1;
+        if (next === 30) {
+          setRescueBreathBeat(true);
+          createBeepSound(440);
+          speakText("Give 2 rescue breaths now");
+          rescueBreathTimerRef.current = window.setTimeout(() => {
+            setRescueBreathBeat(false);
+          }, 1000);
+        } else {
+          createBeepSound(880);
+        }
+        return next;
+      });
+
+      setBeatPulse(true);
+      if (beatPulseTimerRef.current) window.clearTimeout(beatPulseTimerRef.current);
+      beatPulseTimerRef.current = window.setTimeout(() => {
+        setBeatPulse(false);
+      }, 200);
+    }, CPR_BEAT_INTERVAL);
+
+    posturePromptTimerRef.current = window.setTimeout(() => {
+      if (mountedRef.current) setShowPosturePrompt(true);
+    }, 5000);
+  }, [clearCprTimers, speakText]);
+
+  const analyzeCprFrame = useCallback(
+    async (imageBase64) => {
+      setPostureFeedback("");
+      try {
+        const result = await triageEmergency(CPR_POSTURE_MESSAGE, imageBase64);
+        const feedback = result.steps?.[0] || result.warn_message || result.next_question || "Technique feedback unavailable.";
+        const isGood = /correct|good|well/i.test(feedback);
+        setPostureFeedback(feedback);
+        setPostureFeedbackGood(isGood);
+        speakText(feedback);
+      } catch {
+        const fallback = "Keep hands centered, arms straight, and press hard on each beat.";
+        setPostureFeedback(fallback);
+        setPostureFeedbackGood(false);
+        speakText(fallback);
+      }
+    },
+    [speakText]
+  );
+
+  const extractPostureFrame = useCallback((blob) => {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(blob);
+      const video = document.createElement("video");
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = "metadata";
+
+      const cleanup = () => URL.revokeObjectURL(url);
+      video.onerror = () => {
+        cleanup();
+        reject(new Error("Could not load CPR recording."));
+      };
+      video.onloadedmetadata = () => {
+        video.currentTime = Math.min(2.5, Math.max(0, (video.duration || 5) / 2));
+      };
+      video.onseeked = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = 640;
+        canvas.height = 480;
+        canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+        const frame = canvas.toDataURL("image/jpeg", 0.8).replace(/^data:image\/jpeg;base64,/, "");
+        cleanup();
+        resolve(frame);
+      };
+      video.src = url;
+    });
+  }, []);
+
+  const startPostureRecording = useCallback(async () => {
+    if (!window.MediaRecorder || !navigator.mediaDevices?.getUserMedia) {
+      setShowPosturePhotoFallback(true);
+      return;
+    }
+
+    try {
+      setShowPosturePrompt(false);
+      setPostureSubmitted(false);
+      setPostureCountdown(5);
+      setPostureRecording(true);
+
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+      postureStreamRef.current = stream;
+
+      if (postureVideoRef.current) {
+        postureVideoRef.current.srcObject = stream;
+        postureVideoRef.current.muted = true;
+        postureVideoRef.current.playsInline = true;
+        await postureVideoRef.current.play();
+      }
+
+      const chunks = [];
+      const recorder = new MediaRecorder(stream);
+      recorder.ondataavailable = (event) => {
+        if (event.data?.size) chunks.push(event.data);
+      };
+      recorder.onstop = async () => {
+        clearPostureRecording();
+        try {
+          const blob = new Blob(chunks, { type: recorder.mimeType || "video/webm" });
+          const frame = await extractPostureFrame(blob);
+          if (frame) {
+            setPostureSubmitted(true);
+            analyzeCprFrame(frame);
+          }
+        } catch {
+          setShowPosturePhotoFallback(true);
+        }
+      };
+      recorder.start();
+      postureCountdownTimerRef.current = window.setInterval(() => {
+        setPostureCountdown((seconds) => Math.max(0, seconds - 1));
+      }, 1000);
+
+      window.setTimeout(() => {
+        if (recorder.state !== "inactive") recorder.stop();
+      }, 5000);
+    } catch {
+      clearPostureRecording();
+      setShowPosturePhotoFallback(true);
+    }
+  }, [analyzeCprFrame, clearPostureRecording, extractPostureFrame]);
+
+  const handlePosturePhotoSelected = async (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    try {
+      const image = await compressImage(file);
+      setShowPosturePhotoFallback(false);
+      setPostureSubmitted(true);
+      analyzeCprFrame(image);
+    } finally {
+      if (posturePhotoInputRef.current) posturePhotoInputRef.current.value = "";
+    }
+  };
 
   const startListening = useCallback(
     (purpose = inputPurposeRef.current) => {
@@ -380,15 +634,17 @@ export default function WoundCapture() {
       };
 
       if (hasCpr) {
-        setMetronomeRunning(true);
         setAppState("metronome");
-        speakText("Follow the pulse on screen. Push hard on every beat.", continueAfterCpr);
+        window.setTimeout(() => {
+          if (!mountedRef.current || runId !== runIdRef.current) return;
+          speakText(CPR_INTRO, startMetronome);
+        }, 500);
         return;
       }
 
       continueAfterCpr();
     },
-    [askFollowUp, askResources, speakText]
+    [askFollowUp, askResources, speakText, startMetronome]
   );
 
   const speakAndAdvance = useCallback(
@@ -436,6 +692,8 @@ export default function WoundCapture() {
       setTranscriptError("");
       setResourceQuestionVisible(false);
       setFollowUpQuestion("");
+      setPostureFeedbackGood(false);
+      setPostureSubmitted(false);
       if (stage === "initial") {
         stepsRef.current = [];
         cprGuideRef.current = false;
@@ -457,6 +715,7 @@ export default function WoundCapture() {
         const steps = bareHandsOnly ? sanitizeBareHandsSteps(result.steps || []) : result.steps || [];
         nextQuestionRef.current = result.next_question || "";
         setSeverity(result.severity);
+        setCondition(result.condition || "");
 
         if (stage === "initial") {
           setConversationPhase("resources");
@@ -473,7 +732,7 @@ export default function WoundCapture() {
         setCurrentSteps(steps);
         setCurrentStepIndex(0);
         setConversationPhase("refined_steps");
-        const shouldShowCprGuide = needsCprGuide(result);
+        const shouldShowCprGuide = isCPRNeeded(result);
         cprGuideRef.current = shouldShowCprGuide;
         setShowCprGuide(shouldShowCprGuide);
 
@@ -481,6 +740,16 @@ export default function WoundCapture() {
           if (!mountedRef.current || runId !== runIdRef.current) return;
           speakAndAdvance(0, stage);
         };
+
+        const isCprShortcut = ["cardiac", "cpr"].includes(String(emergencyType || "").toLowerCase());
+        if (shouldShowCprGuide && isCprShortcut) {
+          setAppState("metronome");
+          window.setTimeout(() => {
+            if (!mountedRef.current || runId !== runIdRef.current) return;
+            speakText(CPR_INTRO, startMetronome);
+          }, 500);
+          return;
+        }
 
         if (preStepMessage) {
           speakText(preStepMessage, beginSteps);
@@ -500,7 +769,18 @@ export default function WoundCapture() {
         }
       }
     },
-    [askResources, clearAdvanceTimer, clearConfirmationTimer, clearImage, speakAndAdvance, speakText, startListening, stopMetronome]
+    [
+      askResources,
+      clearAdvanceTimer,
+      clearConfirmationTimer,
+      clearImage,
+      emergencyType,
+      speakAndAdvance,
+      speakText,
+      startListening,
+      startMetronome,
+      stopMetronome,
+    ]
   );
 
   const proceedWithTranscript = useCallback(
@@ -684,6 +964,29 @@ export default function WoundCapture() {
     mountedRef.current = true;
     window.speechSynthesis?.getVoices?.();
     window.speechSynthesis?.addEventListener?.("voiceschanged", getPreferredVoice);
+    if (["cardiac", "cpr"].includes(String(emergencyType || "").toLowerCase())) {
+      if (!cprAutoSubmittedRef.current) {
+        cprAutoSubmittedRef.current = true;
+        originalScenarioRef.current = CPR_QUICK_MESSAGE;
+        setTranscript(CPR_QUICK_MESSAGE);
+        runTriage(CPR_QUICK_MESSAGE, { stage: "refined" });
+      }
+
+      return () => {
+        mountedRef.current = false;
+        clearAdvanceTimer();
+        clearConfirmationTimer();
+        clearListeningFallbackTimer();
+        clearRecognitionStartTimer();
+        clearCprTimers();
+        clearPostureRecording();
+        clearImage();
+        recognitionRef.current?.abort?.();
+        window.speechSynthesis?.cancel();
+        window.speechSynthesis?.removeEventListener?.("voiceschanged", getPreferredVoice);
+      };
+    }
+
     const micRequest = navigator.mediaDevices?.getUserMedia?.({ audio: true });
 
     if (!micRequest) {
@@ -694,6 +997,8 @@ export default function WoundCapture() {
         clearConfirmationTimer();
         clearListeningFallbackTimer();
         clearRecognitionStartTimer();
+        clearCprTimers();
+        clearPostureRecording();
         clearImage();
         recognitionRef.current?.abort?.();
         window.speechSynthesis?.cancel();
@@ -723,6 +1028,8 @@ export default function WoundCapture() {
       clearConfirmationTimer();
       clearListeningFallbackTimer();
       clearRecognitionStartTimer();
+      clearCprTimers();
+      clearPostureRecording();
       clearImage();
       recognitionRef.current?.abort?.();
       window.speechSynthesis?.cancel();
@@ -732,9 +1039,12 @@ export default function WoundCapture() {
     clearAdvanceTimer,
     clearConfirmationTimer,
     clearImage,
+    clearCprTimers,
+    clearPostureRecording,
     clearListeningFallbackTimer,
     clearRecognitionStartTimer,
     emergencyType,
+    runTriage,
     speakText,
     startListening,
   ]);
@@ -742,6 +1052,8 @@ export default function WoundCapture() {
   const visibleStatus =
     appState === "speaking"
       ? `Speaking step ${currentStepIndex + 1} of ${currentSteps.length}`
+      : appState === "thinking" && ["cardiac", "cpr"].includes(String(emergencyType || "").toLowerCase())
+      ? "Assessing CPR emergency..."
       : appState === "listening" && inputPurposeRef.current === "followup"
       ? "Listening for your answer..."
       : imageReady
@@ -814,17 +1126,73 @@ export default function WoundCapture() {
           <div className="card cpr-guide">
             <h3>CPR Rhythm Guide</h3>
             <p>{CPR_GUIDE_TEXT}</p>
+            <strong className="cpr-beat-count">Beat {cprBeatCount}</strong>
             <button
               type="button"
-              className={`cpr-metronome ${metronomeRunning ? "cpr-metronome--active" : ""}`}
+              className={`cpr-circle ${beatPulse ? "cpr-circle--beat" : ""} ${
+                rescueBreathBeat ? "cpr-circle--breath" : ""
+              }`}
               onClick={stopMetronome}
               aria-label="Stop CPR metronome"
             />
             <strong className={`cpr-beat-text ${metronomeRunning ? "cpr-beat-text--active" : ""}`}>
               Push. Release. Push. Release.
             </strong>
+            <button type="button" className="btn btn--secondary cpr-pause-button" onClick={stopMetronome}>
+              Pause
+            </button>
+
+            {showPosturePrompt && (
+              <div className="cpr-posture-card">
+                <strong>Want posture feedback?</strong>
+                <span>Record 5 seconds of your CPR</span>
+                <button type="button" className="btn btn--secondary" onClick={startPostureRecording}>
+                  🎥 Start Recording
+                </button>
+              </div>
+            )}
+
+            {postureRecording && (
+              <div className="cpr-posture-card">
+                <strong>Recording CPR posture</strong>
+                <span className="cpr-countdown">{postureCountdown}</span>
+                <video ref={postureVideoRef} style={{ width: "100%", borderRadius: 8 }} muted playsInline />
+              </div>
+            )}
+
+            {showPosturePhotoFallback && (
+              <div className="cpr-posture-card">
+                <strong>Camera recording unavailable. Take a posture photo.</strong>
+                <input
+                  ref={posturePhotoInputRef}
+                  type="file"
+                  accept="image/*"
+                  capture="environment"
+                  onChange={handlePosturePhotoSelected}
+                  style={{ display: "none" }}
+                />
+                <button
+                  type="button"
+                  className="btn btn--secondary"
+                  onClick={() => posturePhotoInputRef.current?.click()}
+                >
+                  📷 Take photo of your hands
+                </button>
+              </div>
+            )}
+
+            {postureSubmitted && postureFeedback && (
+              <div className={`cpr-feedback-card ${postureFeedbackGood ? "cpr-feedback-card--good" : ""}`}>
+                <span className="cpr-feedback-badge">
+                  {postureFeedbackGood ? "✓ Good technique" : "! Correction needed"}
+                </span>
+                <span>{postureFeedback}</span>
+              </div>
+            )}
           </div>
         )}
+
+        {severity && <HospitalDirections severity={severity} condition={condition} />}
 
         {resourceQuestionVisible && (
           <div className="card" style={{ display: "grid", gap: 12, background: "#F0F4FF" }}>

@@ -18,7 +18,7 @@ const EMERGENCIES = [
   { value: "choking", label: "Choking" },
   { value: "unconscious", label: "Unconscious" },
   { value: "poisoning", label: "Poisoning" },
-  { value: "cardiac", label: "Cardiac" },
+  { value: "cardiac", label: "CPR / Cardiac", immediate: true },
   { value: "other_describe", label: "Other / Describe", icon: MessageSquare, immediate: true },
   { value: "not_sure", label: "Not sure", icon: HelpCircle, immediate: true },
 ];

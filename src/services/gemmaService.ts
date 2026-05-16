@@ -2,7 +2,7 @@ import offlineTriageData from "./offlineTriage.json";
 
 const SYSTEM_PROMPT = `You are ResqAI, a calm emergency first-aid assistant.
 You MUST always respond by calling the triage_emergency function.
-Never respond with plain text. Never ask for more details first.
+Never respond with plain text. Never ask questions before triaging.
 Even for vague inputs like "what to do" or "help" — always call the function.
 Default to severity "serious" if unsure. Always give at least 3 steps.
 Respond in the same language the user writes in.`;
@@ -199,11 +199,11 @@ function normalizeTriageResult(value: Partial<TriageResult>): TriageResult {
 export async function triageOffline(condition: string): Promise<TriageResult> {
   try {
     const closestCondition = offlineConditions[condition] ? condition : getClosestCondition(condition);
-    const result = offlineConditions[closestCondition] || offlineConditions.severe_bleeding;
+    const result = offlineConditions[closestCondition] || offlineConditions.cardiac_arrest;
     return cloneTriageResult(result);
   } catch (error) {
-    console.warn("Offline emergency triage failed; using severe bleeding fallback.", error);
-    return cloneTriageResult(offlineConditions.severe_bleeding);
+    console.warn("Offline emergency triage failed; using cardiac arrest fallback.", error);
+    return cloneTriageResult(offlineConditions.cardiac_arrest);
   }
 }
 
@@ -246,21 +246,15 @@ function sanitizeBareHandsStep(step: string): string {
 }
 
 function getClosestCondition(input: string): string {
-  const text = normalizeText(input);
-  const scored = Object.keys(conditionKeywords).map((condition) => ({
-    condition,
-    score: scoreCondition(text, conditionKeywords[condition]),
-  }));
+  const text = String(input || "").toLowerCase();
 
-  scored.sort((a, b) => b.score - a.score);
-  return scored[0]?.score > 0 ? scored[0].condition : "severe_bleeding";
-}
+  for (const [condition, keywords] of Object.entries(keywordMap)) {
+    if (keywords.some((keyword) => text.includes(keyword.toLowerCase()))) {
+      return conditionAliases[condition] || condition;
+    }
+  }
 
-function scoreCondition(text: string, keywords: string[]): number {
-  return keywords.reduce((score, keyword) => {
-    const normalizedKeyword = normalizeText(keyword);
-    return text.includes(normalizedKeyword) ? score + normalizedKeyword.length : score;
-  }, 0);
+  return "cardiac_arrest";
 }
 
 function normalizeText(input: string): string {
@@ -276,25 +270,18 @@ function toSnakeCase(input: string): string {
   return normalizeText(input).replace(/\s+/g, "_") || "general_emergency";
 }
 
-const conditionKeywords: Record<string, string[]> = {
-  choking_adult: ["choking", "choke", "airway blocked", "can't breathe", "food stuck"],
-  cardiac_arrest: ["cardiac arrest", "no pulse", "not breathing", "collapsed", "cpr", "unresponsive"],
-  severe_bleeding: ["severe bleeding", "bleeding", "blood", "spurting", "hemorrhage", "cut"],
-  burn_second_degree: ["burn", "blister", "scald", "hot water", "second degree"],
-  anaphylaxis: ["anaphylaxis", "allergic", "swelling throat", "epipen", "wheezing", "hives"],
-  seizure: ["seizure", "fit", "convulsion", "shaking", "epilepsy"],
-  stroke: ["stroke", "face droop", "slurred speech", "arm weakness"],
-  diabetic_emergency: ["diabetic", "diabetes", "low sugar", "hypoglycemia", "insulin", "sugar"],
-  poisoning: ["poison", "poisoning", "overdose", "chemical", "tablet", "swallowed"],
-  head_injury: ["head injury", "hit head", "concussion", "head wound", "skull"],
-  heat_stroke: ["heat stroke", "overheated", "high temperature", "hot sun", "heat exhaustion"],
-  fracture: ["fracture", "broken bone", "broken", "deformity", "bone"],
-  nosebleed: ["nosebleed", "nose bleed", "bloody nose"],
-  drowning: ["drowning", "drowned", "near drowning", "water inhaled", "pool"],
-  chest_pain: ["chest pain", "heart attack", "pressure in chest", "left arm pain"],
-  eye_injury: ["eye injury", "chemical in eye", "eye", "vision"],
-  electric_shock: ["electric shock", "electrocuted", "current", "shock"],
-  snakebite: ["snakebite", "snake bite", "snake", "venom"],
-  hypothermia: ["hypothermia", "freezing", "too cold", "cold exposure", "shivering"],
-  allergic_reaction_mild: ["mild allergy", "rash", "itching", "sneezing", "mild allergic"],
+const conditionAliases: Record<string, string> = {
+  choking: "choking_adult",
+  burn: "burn_second_degree",
+};
+
+const keywordMap: Record<string, string[]> = {
+  cardiac_arrest: ["cpr", "cardiac", "heart", "not breathing", "no pulse", "unconscious", "collapsed", "arrest"],
+  choking: ["chok", "throat", "heimlich", "cant breathe", "can't breathe"],
+  severe_bleeding: ["bleed", "blood", "cut", "wound", "gash", "stab"],
+  burn: ["burn", "fire", "scald", "hot"],
+  seizure: ["seizure", "fit", "convuls", "shaking"],
+  stroke: ["stroke", "face drooping", "arm weak", "speech"],
+  fracture: ["fracture", "broken", "bone", "snap"],
+  anaphylaxis: ["allerg", "epipen", "swelling", "anaphyl"],
 };
