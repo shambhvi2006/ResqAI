@@ -1,0 +1,39 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# requirements.txt
+# ResqAI — Hybrid Medical Fine-tuning Pipeline
+# ─────────────────────────────────────────────────────────────────────────────
+# Install on Kaggle T4:
+#   pip install -r requirements.txt
+#
+# Note: unsloth[kaggle-new] is the Kaggle-specific variant that handles
+# CUDA 11.8 compatibility on T4 GPUs. Use unsloth[colab-new] for Colab.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Core fine-tuning stack
+unsloth[kaggle-new]>=2024.11.0
+xformers>=0.0.27
+trl>=0.12.0
+peft>=0.13.0
+accelerate>=1.0.0
+bitsandbytes>=0.44.0
+
+# Model and data
+transformers>=4.46.0
+datasets>=3.0.0
+huggingface_hub>=0.26.0
+tokenizers>=0.20.0
+
+# Data processing
+numpy>=1.26.0
+pandas>=2.1.0
+
+# Utilities
+tqdm>=4.66.0
+pyyaml>=6.0.1
+regex>=2024.0.0
+
+# Optional: experiment tracking
+# wandb>=0.18.0
+
+# Optional: local GGUF inference testing
+# llama-cpp-python>=0.3.0

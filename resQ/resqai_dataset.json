@@ -1,0 +1,2402 @@
+[
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "HELP!! man at our restaurant is CHOKING cant breathe turning blue hes like 40s grabbing his throat PLEASE HELP"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately if not done.\",\"Ask victim: Are you choking? If no sound, act now.\",\"Stand behind victim, wrap arms around waist.\",\"Make fist above navel, below breastbone.\",\"Grasp fist with other hand, thrust sharply inward-upward.\",\"Repeat thrusts until object expelled or victim collapses.\",\"If unconscious, begin CPR and look for object in mouth.\"],\"estimated_time_minutes\":0,\"condition\":\"choking_adult\",\"warn_message\":\"Complete airway obstruction causes unconsciousness in minutes.\",\"next_question\":\"Can the person make any sound or cough at all?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "im alone my elderly mother is choking on food she cant breathe at all shes 74 what do i do shes going limp"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 now — put on speaker.\",\"Stand behind her, support her with one arm.\",\"Place fist above navel, below breastbone.\",\"Grasp fist, give firm inward-upward thrusts.\",\"Repeat up to 5 thrusts, check mouth for object.\",\"If she collapses, lower her to floor carefully.\",\"Begin CPR: 30 compressions, 2 breaths, check airway.\",\"Continue until ambulance arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"choking_adult\",\"warn_message\":\"She is losing consciousness — brain damage begins within minutes.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "My coworker is coughing hard, seems like something is stuck in her throat. She can still breathe a little but looks scared. We're in the office."
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Encourage her to keep coughing forcefully.\",\"Do not slap her back while she can cough effectively.\",\"Stay with her and keep her calm.\",\"If coughing stops and she cannot breathe, call 911.\",\"If airway fully blocked, perform abdominal thrusts.\",\"Monitor until object is cleared.\"],\"estimated_time_minutes\":5,\"condition\":\"choking_adult\",\"warn_message\":\"\",\"next_question\":\"Can she speak or make any sounds right now?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my teen son 15 is choking in the backseat of the car something from snacks hes panicking cant breathe properly im pulled over"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Get out and open rear door to access him.\",\"Stand behind him, arms around his waist.\",\"Fist above navel, grasp with other hand.\",\"Give sharp inward-upward abdominal thrusts.\",\"Repeat until object dislodged or help arrives.\",\"If unconscious, lay flat and begin CPR.\"],\"estimated_time_minutes\":0,\"condition\":\"choking_adult\",\"warn_message\":\"Airway obstruction can cause loss of consciousness rapidly.\",\"next_question\":\"Is he able to make any noise or cough at all?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "I think I swallowed something wrong while eating outside, it's a bit uncomfortable but I can breathe and talk fine. Have a first aid kit nearby."
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"low\",\"call_ambulance\":false,\"steps\":[\"Stay calm — you can breathe and speak, airway is clear.\",\"Cough gently to try to clear the sensation.\",\"Sip small amounts of water slowly.\",\"Avoid eating more until discomfort resolves.\",\"If discomfort worsens or breathing changes, call 911.\"],\"estimated_time_minutes\":10,\"condition\":\"choking_adult\",\"warn_message\":\"\",\"next_question\":\"Do you feel any pain swallowing or chest tightness?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "There's an elderly man choking here at the restaurant, he's 70s, completely silent, face is purple. A doctor is here with us!"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Doctor: call 911 immediately while others assist.\",\"Perform abdominal thrusts: fist above navel, sharp inward-upward.\",\"Deliver up to 5 thrusts, check mouth after each set.\",\"If victim collapses, lower to floor safely.\",\"Begin CPR: 30 compressions then check airway for object.\",\"Remove visible object only — never blind finger sweep.\",\"Continue CPR cycles until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"choking_adult\",\"warn_message\":\"Silent choking with cyanosis is immediately life-threatening.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "something is stuck in my throat i think from eating too fast. i can breathe but its uncomfortable. im home alone. what should i do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Stay calm and breathe slowly through your nose.\",\"Try several strong, deliberate coughs.\",\"Drink small sips of water if you can swallow.\",\"If breathing becomes difficult, call 911 immediately.\",\"For self-Heimlich: make fist above navel, thrust inward-upward.\",\"Or thrust your upper abdomen against a chair back.\"],\"estimated_time_minutes\":10,\"condition\":\"choking_adult\",\"warn_message\":\"\",\"next_question\":\"Are you able to swallow water or speak normally?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "COWORKER CHOKING IN OFFICE CANT BREATHE AT ALL TURNING RED PLEASE HELP there is an AED on the wall"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — AED not needed for choking.\",\"Stand behind victim, arms around waist.\",\"Place fist above navel, below breastbone.\",\"Grasp fist with other hand, thrust sharply inward-upward.\",\"Repeat thrusts until object expelled or victim collapses.\",\"If collapses: lower to floor, begin CPR, check mouth for object.\",\"Use AED only if victim becomes pulseless after clearing airway.\"],\"estimated_time_minutes\":0,\"condition\":\"choking_adult\",\"warn_message\":\"Complete obstruction — act immediately, every second counts.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "elderly lady near me outside is coughing a lot, seems like food is stuck but she can still breathe. no first aid kit around"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"low\",\"call_ambulance\":false,\"steps\":[\"Encourage her to continue coughing forcefully.\",\"Stay beside her and keep her calm.\",\"Do not interfere while she can cough effectively.\",\"If coughing stops and breathing worsens, call 911.\",\"Be ready to perform abdominal thrusts if needed.\"],\"estimated_time_minutes\":5,\"condition\":\"choking_adult\",\"warn_message\":\"\",\"next_question\":\"Can she speak and is her skin color normal?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Ayuda! Mi esposo se está ahogando con comida en casa, no puede respirar, se está poniendo morado, tengo 45 años él tiene 50"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Llama al 911 ahora mismo.\",\"Párate detrás de él, rodea su cintura con tus brazos.\",\"Coloca el puño encima del ombligo, debajo del esternón.\",\"Agarra el puño con la otra mano, empuja hacia adentro y arriba.\",\"Repite hasta que salga el objeto o pierda el conocimiento.\",\"Si cae inconsciente, inicia RCP y busca el objeto en la boca.\"],\"estimated_time_minutes\":0,\"condition\":\"choking_adult\",\"warn_message\":\"Obstrucción total de la vía aérea — actúa de inmediato.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "MY BABY IS CHOKING shes 2 years old she put something in her mouth and now she cant breathe at all PLEASE HELP"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — put on speaker.\",\"Kneel or sit, lay baby face-down on your forearm.\",\"Give 5 firm back blows between shoulder blades with heel of hand.\",\"Turn baby face-up, give 5 chest thrusts with 2 fingers on breastbone.\",\"Alternate 5 back blows and 5 chest thrusts.\",\"Check mouth — remove object only if clearly visible.\",\"If unconscious, begin infant CPR immediately.\"],\"estimated_time_minutes\":0,\"condition\":\"choking_child\",\"warn_message\":\"Infant airway obstruction is immediately life-threatening.\",\"next_question\":\"Is she making any sound or coughing at all?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "8 year old student is choking in my classroom, she was eating a snack, she can't speak, face is red. I'm the teacher."
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Send another student to call 911 or school nurse.\",\"Stand behind child, kneel to her level.\",\"Place fist above navel, below breastbone.\",\"Grasp fist with other hand, give sharp inward-upward thrusts.\",\"Repeat up to 5 thrusts, check mouth for object.\",\"If she collapses, begin child CPR immediately.\",\"Continue until object expelled or EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"choking_child\",\"warn_message\":\"Child cannot breathe — act immediately.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 10 month old baby is choking i am alone she is turning blue i dont know what to do PLEASE"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 NOW — put phone on speaker.\",\"Hold baby face-down on forearm, head lower than chest.\",\"Give 5 firm back blows between shoulder blades.\",\"Flip baby face-up on your thigh, give 5 chest thrusts with 2 fingers.\",\"Alternate back blows and chest thrusts continuously.\",\"Check mouth — remove object only if you can clearly see it.\",\"If baby stops breathing, begin infant CPR.\"],\"estimated_time_minutes\":0,\"condition\":\"choking_child\",\"warn_message\":\"Infant turning blue — brain damage begins within minutes.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "6 year old kid at the next table is choking on food, parents are screaming, he cant breathe, we're at a restaurant"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Kneel behind the child to his level.\",\"Place fist above navel, below breastbone.\",\"Grasp fist with other hand, thrust sharply inward-upward.\",\"Repeat thrusts until object expelled or child collapses.\",\"If collapses, begin child CPR and check mouth for object.\",\"Stay on line with 911 for guidance.\"],\"estimated_time_minutes\":0,\"condition\":\"choking_child\",\"warn_message\":\"Complete airway obstruction — every second matters.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 3 year old is coughing a lot, I think she swallowed a small toy piece. She can still breathe and is crying. I have a first aid kit."
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Stay calm — crying means airway is partially open.\",\"Encourage her to keep coughing.\",\"Do not perform thrusts while she can cough and breathe.\",\"Do not do blind finger sweeps in her mouth.\",\"Watch closely — if breathing worsens, call 911 immediately.\",\"Take her to ER if coughing persists over 10 minutes.\"],\"estimated_time_minutes\":10,\"condition\":\"choking_child\",\"warn_message\":\"\",\"next_question\":\"Is she able to cry loudly and breathe between coughs?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "10 year old boy swallowed something outside, he's coughing but can breathe ok. no first aid kit here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"low\",\"call_ambulance\":false,\"steps\":[\"Encourage him to keep coughing forcefully.\",\"Stay with him and keep him calm.\",\"Do not interfere while he can cough and breathe.\",\"If breathing worsens or coughing stops, call 911.\",\"Take him to a doctor if discomfort continues.\"],\"estimated_time_minutes\":10,\"condition\":\"choking_child\",\"warn_message\":\"\",\"next_question\":\"Can he speak and is his face a normal color?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "HELP my 8 month old baby is choking not breathing at all i called a doctor they are coming but what do i do NOW"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — do not wait for doctor.\",\"Hold baby face-down on forearm, head lower than chest.\",\"Give 5 firm back blows between shoulder blades with heel of hand.\",\"Turn face-up, give 5 chest thrusts with 2 fingers on lower breastbone.\",\"Alternate back blows and chest thrusts until object expelled.\",\"If baby becomes unresponsive, begin infant CPR.\",\"Keep going until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"choking_child\",\"warn_message\":\"Infant not breathing — begin back blows immediately.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 7yr old is choking in the car, we pulled over, she ate a candy and now cant breathe, im so scared"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Get her out of the car or lean into backseat.\",\"Kneel behind her, place fist above navel.\",\"Grasp fist, give sharp inward-upward thrusts.\",\"Repeat until object expelled or she collapses.\",\"If unconscious, lay her flat and begin child CPR.\",\"Stay on line with 911.\"],\"estimated_time_minutes\":0,\"condition\":\"choking_child\",\"warn_message\":\"Child cannot breathe — act immediately.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 4 year old is coughing and gagging, something is stuck, she can still breathe a little, im on the phone alone at home"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\": \"moderate\", \"call_ambulance\": false, \"steps\": [\"Stay calm \\u2014 she can breathe, airway is partially open.\", \"Encourage her to keep coughing forcefully.\", \"Do not perform thrusts while she can cough and breathe.\", \"Do not do blind finger sweeps in her mouth.\", \"Call 911 immediately if breathing worsens.\", \"If airway fully blocks, perform back blows and chest thrusts.\"], \"estimated_time_minutes\": 10, \"condition\": \"choking_child\", \"warn_message\": \"\", \"next_question\": \"Is she able to cry or make sounds right now?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "meri 4 saal ki beti kuch kha rhi thi aur ab uska gala ruka hua hai, ro rhi hai thodi, main akeli hoon ghar mein"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Shant raho — rona matlab thodi hawa ja rahi hai.\",\"Use khud khansi karne do, rok mat.\",\"Agar saans lena mushkil ho jaye, 112 call karo.\",\"Agar bilkul saans nahi le sakti, uske peeche ghutno par baitho.\",\"Nabi ke upar mutthi rakho, doosre haath se pakdo, andar-upar dhakka do.\",\"Agar behosh ho jaye, bachon ka CPR shuru karo.\"],\"estimated_time_minutes\":10,\"condition\":\"choking_child\",\"warn_message\":\"\",\"next_question\":\"Kya woh zor se ro sakti hai aur saans le sakti hai?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "MAN DOWN IN OFFICE 45yr old male collapsed not breathing no pulse someone get the AED NOW"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Begin CPR: 30 hard fast chest compressions, 2 inches deep.\",\"Give 2 rescue breaths after every 30 compressions.\",\"Have someone retrieve and power on the AED.\",\"Attach AED pads to bare chest as shown in diagram.\",\"Follow AED voice prompts — deliver shock if advised.\",\"Resume CPR immediately after shock, continue until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"cardiac_arrest\",\"warn_message\":\"Brain damage begins in 4 minutes without CPR.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my husband collapsed at home not breathing i think hes having a heart attack im 72 and alone what do i do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — stay on the line.\",\"Lay him on his back on a firm flat surface.\",\"Place heel of hand on center of chest.\",\"Push down hard and fast: 100-120 compressions per minute.\",\"Continue compressions — dispatcher will guide you.\",\"Do not stop until paramedics arrive.\"],\"estimated_time_minutes\":0,\"condition\":\"cardiac_arrest\",\"warn_message\":\"Every minute without CPR reduces survival by 10%.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "guy at the gym just collapsed, 55 years old, no pulse no breathing, people are around, what do we do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 — assign one person to call, one to do CPR.\",\"Check for AED in the gym — send someone to get it.\",\"Begin CPR: 30 compressions at 2 inches depth, 100-120/min.\",\"Give 2 rescue breaths after every 30 compressions.\",\"Attach AED as soon as available, follow prompts.\",\"Shock if advised, resume CPR immediately after.\",\"Rotate compressors every 2 minutes to maintain quality.\"],\"estimated_time_minutes\":0,\"condition\":\"cardiac_arrest\",\"warn_message\":\"Defibrillation within 3-5 minutes dramatically improves survival.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "elderly man 68 collapsed outside in the park, not breathing, no pulse, no equipment around us"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Lay him on his back on firm ground.\",\"Interlock hands, place on center of chest.\",\"Compress hard and fast: 2 inches, 100-120 per minute.\",\"Give 2 rescue breaths every 30 compressions if trained.\",\"If untrained, do continuous chest compressions only.\",\"Do not stop until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"cardiac_arrest\",\"warn_message\":\"Hands-only CPR is effective — do not stop compressions.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "woman collapsed at our restaurant, 40s, no breathing, a doctor is dining here with us, what should we do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Doctor leads resuscitation — call 911 immediately.\",\"Clear area, lay victim on firm floor.\",\"Begin high-quality CPR: 30 compressions, 2 breaths.\",\"Send staff to retrieve AED if available.\",\"Attach AED, follow prompts, shock if indicated.\",\"Resume CPR immediately after each shock.\",\"Continue until EMS takes over.\"],\"estimated_time_minutes\":0,\"condition\":\"cardiac_arrest\",\"warn_message\":\"Physician-led CPR with AED maximizes survival odds.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "16 year old player just collapsed on the soccer field, no pulse, coach is here, what do we do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — send someone to get AED.\",\"Lay player on back on firm ground.\",\"Begin CPR: 30 compressions 2 inches deep, 100-120/min.\",\"Give 2 rescue breaths after every 30 compressions.\",\"Attach AED as soon as available, follow voice prompts.\",\"Deliver shock if advised, resume CPR immediately.\",\"Continue until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"cardiac_arrest\",\"warn_message\":\"Sudden cardiac arrest in young athletes — AED is critical.\",\"next_question\":\"Did he collapse suddenly or complain of chest pain first?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "passenger in my car just stopped breathing, 50yr old man, pulled over, no pulse, what do i do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Get him out of car onto flat ground if safe to do so.\",\"Begin CPR: 30 hard chest compressions, 2 inches deep.\",\"Give 2 rescue breaths after every 30 compressions.\",\"Continue CPR without stopping until EMS arrives.\",\"If AED available nearby, use it immediately.\"],\"estimated_time_minutes\":0,\"condition\":\"cardiac_arrest\",\"warn_message\":\"Do not delay CPR — move him to flat ground immediately.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 80 year old mother stopped breathing, she has no pulse, caregiver is here with me, we called 911 already"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Stay on line with 911 — follow dispatcher instructions.\",\"Lay her on firm flat surface.\",\"Begin CPR: 30 compressions at center of chest, 2 inches deep.\",\"Give 2 rescue breaths after every 30 compressions.\",\"Rotate between caregiver and yourself every 2 minutes.\",\"If AED available, attach and use immediately.\",\"Do not stop until paramedics arrive.\"],\"estimated_time_minutes\":0,\"condition\":\"cardiac_arrest\",\"warn_message\":\"Continue CPR without interruption — quality compressions save lives.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "coworker collapsed, 35 male, no breathing no pulse, AED is right here on the wall, what do i do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Begin CPR: 30 compressions hard and fast on center of chest.\",\"Have someone power on AED and bring it over.\",\"Expose chest, attach pads as shown on AED diagram.\",\"Stop CPR briefly for AED analysis — follow voice prompts.\",\"Deliver shock if advised, resume CPR immediately after.\",\"Continue CPR and AED cycles until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"cardiac_arrest\",\"warn_message\":\"AED within 3 minutes can triple survival rate.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "بوڑھا آدمی گر گیا ہے، سانس نہیں لے رہا، نبض نہیں ہے، ہم باہر ہیں، کوئی سامان نہیں ہے، مدد کریں"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"ابھی 115 یا 1122 پر کال کریں۔\",\"اسے سخت زمین پر سیدھا لٹائیں۔\",\"دونوں ہاتھ سینے کے بیچ میں رکھیں۔\",\"تیز اور زور سے دبائیں: 2 انچ گہرا، 100-120 فی منٹ۔\",\"ہر 30 دبانے کے بعد 2 سانسیں دیں اگر تربیت ہو۔\",\"بغیر رکے جاری رکھیں جب تک ایمبولینس نہ آئے۔\"],\"estimated_time_minutes\":0,\"condition\":\"cardiac_arrest\",\"warn_message\":\"CPR کے بغیر 4 منٹ میں دماغ کو نقصان ہوتا ہے۔\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "CONSTRUCTION WORKER CUT HIS LEG WITH SAW BLOOD EVERYWHERE HE CANT STOP IT WE HAVE NOTHING"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Apply direct pressure with any clean cloth — press hard.\",\"Do not remove cloth — add more on top if soaked through.\",\"If limb, apply improvised tourniquet 2 inches above wound.\",\"Tighten tourniquet until bleeding stops, note the time.\",\"Keep him lying down, elevate legs if no spinal injury.\",\"Keep him warm and calm until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"severe_bleeding\",\"warn_message\":\"Severe arterial bleeding can cause death in minutes.\",\"next_question\":\"Is the blood spurting rhythmically or flowing steadily?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 9 year old cut his hand badly on broken glass at home, lots of blood, I have a first aid kit"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Apply firm direct pressure with sterile gauze from kit.\",\"Elevate his hand above heart level.\",\"Maintain pressure for at least 10 minutes without peeking.\",\"If bleeding soaks through, add more gauze on top.\",\"Wrap firmly with bandage from kit.\",\"Call 911 or take to ER — deep cuts need medical evaluation.\",\"Keep him calm and still.\"],\"estimated_time_minutes\":10,\"condition\":\"severe_bleeding\",\"warn_message\":\"\",\"next_question\":\"Is the cut deep enough to see tissue or bone?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "i cut myself badly in the kitchen, my arm is bleeding a lot, im alone at home, what do i do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Press hard on the wound with a clean cloth or towel.\",\"Elevate your arm above your heart.\",\"Call 911 or have someone drive you to ER.\",\"Keep pressure on — do not remove cloth.\",\"If bleeding soaks through, add more cloth on top.\",\"Sit or lie down to prevent fainting.\"],\"estimated_time_minutes\":0,\"condition\":\"severe_bleeding\",\"warn_message\":\"Alone with severe bleeding — call 911 immediately.\",\"next_question\":\"Is the blood bright red and spurting, or dark and flowing?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen got stabbed outside, 16 years old, bleeding from stomach, people are around, HELP"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Do NOT remove the knife if still present.\",\"Apply firm pressure around the wound with clean cloth.\",\"Keep him still and lying down.\",\"Do not give food or water.\",\"Keep him warm with a jacket or blanket.\",\"Monitor breathing until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"severe_bleeding\",\"warn_message\":\"Abdominal stab wound — internal bleeding risk is high.\",\"next_question\":\"Is the knife or object still in the wound?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my elderly father cut his hand at home, bleeding quite a bit, he's on blood thinners, only have phone guidance"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Apply firm direct pressure with clean cloth immediately.\",\"Elevate his hand above heart level.\",\"Blood thinners mean bleeding will be harder to stop — call 911.\",\"Maintain continuous pressure for at least 15 minutes.\",\"Do not remove cloth — add more on top if soaked.\",\"Keep him seated or lying down.\"],\"estimated_time_minutes\":0,\"condition\":\"severe_bleeding\",\"warn_message\":\"Blood thinners significantly increase bleeding risk — seek emergency care.\",\"next_question\":\"What blood thinner is he taking and what is the wound location?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "car accident on highway, adult male has deep gash on his thigh, blood is spurting, bystanders here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Apply direct pressure with any cloth — press very hard.\",\"Apply tourniquet 2 inches above wound on thigh.\",\"Tighten until bleeding stops completely, write time on skin.\",\"Do not loosen tourniquet once applied.\",\"Keep victim lying flat, elevate legs if no spinal injury.\",\"Keep him warm and talking until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"severe_bleeding\",\"warn_message\":\"Arterial thigh bleeding — tourniquet is life-saving here.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "coworker cut her hand on office equipment, moderate bleeding, we have a first aid kit here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Put on gloves from kit if available.\",\"Apply sterile gauze with firm direct pressure.\",\"Elevate her hand above heart level.\",\"Maintain pressure for 10 minutes without lifting gauze.\",\"Wrap with bandage from kit once bleeding slows.\",\"Seek medical care if bleeding doesn't stop in 15 minutes.\"],\"estimated_time_minutes\":15,\"condition\":\"severe_bleeding\",\"warn_message\":\"\",\"next_question\":\"Is the cut deep or jagged — does it need stitches?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "7 year old fell on playground and has a deep cut on his knee, bleeding a lot, no first aid kit here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"Apply firm pressure with the cleanest cloth available.\",\"Elevate his leg above heart level.\",\"Maintain pressure for 10 minutes without peeking.\",\"Keep him calm and still.\",\"Take him to ER or urgent care — deep cuts need evaluation.\",\"If bleeding won't stop, call 911.\"],\"estimated_time_minutes\":10,\"condition\":\"severe_bleeding\",\"warn_message\":\"\",\"next_question\":\"Is the cut deep enough to see yellow tissue or bone?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "i'm an elderly woman, i cut my leg at home, it's bleeding but not too bad, i'm alone"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Sit down immediately to avoid fainting.\",\"Apply firm pressure with a clean cloth or towel.\",\"Elevate your leg on a chair or pillow.\",\"Maintain pressure for 10-15 minutes.\",\"Call a family member or neighbor to assist.\",\"If bleeding doesn't stop, call 911.\"],\"estimated_time_minutes\":15,\"condition\":\"severe_bleeding\",\"warn_message\":\"\",\"next_question\":\"Are you on any blood thinners or aspirin?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Ayuda! Adulto con herida profunda en el brazo, mucha sangre, estamos en la calle, no tenemos botiquín"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Llama al 911 inmediatamente.\",\"Presiona fuerte sobre la herida con cualquier tela limpia.\",\"Eleva el brazo por encima del corazón.\",\"Mantén la presión sin quitar la tela.\",\"Si la tela se empapa, agrega más encima.\",\"Si la sangre sale a chorros, aplica torniquete 5 cm arriba de la herida.\",\"Mantén a la persona acostada y tranquila.\"],\"estimated_time_minutes\":0,\"condition\":\"severe_bleeding\",\"warn_message\":\"Hemorragia severa — la presión directa es vital.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 5 year old daughter touched the stove and burned her hand badly, there are blisters, she's screaming, I have a first aid kit"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"Cool burn under cool running water for 20 minutes immediately.\",\"Do not use ice, butter, or toothpaste.\",\"Do not pop blisters — they protect against infection.\",\"Cover loosely with sterile non-stick dressing from kit.\",\"Give children's pain reliever if available.\",\"Take her to ER — burns with blisters in children need evaluation.\"],\"estimated_time_minutes\":20,\"condition\":\"burn_second_degree\",\"warn_message\":\"Burns larger than child's palm or on hands/face need emergency care.\",\"next_question\":\"How large is the burned area — bigger or smaller than her palm?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "burned my arm on the BBQ grill outside, got some blisters forming, hurts a lot, no first aid kit around"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Cool burn under cool running water for 20 minutes.\",\"Do not use ice, butter, or any home remedies.\",\"Do not pop blisters.\",\"Cover loosely with clean cloth if available.\",\"Take over-the-counter pain reliever for pain.\",\"See a doctor if burn is larger than your palm or on face/hands.\"],\"estimated_time_minutes\":20,\"condition\":\"burn_second_degree\",\"warn_message\":\"\",\"next_question\":\"How large is the burned area approximately?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "i'm an elderly woman, i spilled boiling water on my arm at home, it's blistering and very painful, i'm alone"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"Cool burn under cool running water for 20 minutes immediately.\",\"Do not use ice or any creams.\",\"Do not pop blisters.\",\"Cover loosely with clean cloth.\",\"Call a family member or neighbor for help.\",\"Go to ER or urgent care — elderly skin burns more severely.\"],\"estimated_time_minutes\":20,\"condition\":\"burn_second_degree\",\"warn_message\":\"Elderly patients have thinner skin — burns are more serious.\",\"next_question\":\"Is the burn on your arm only, or does it extend to other areas?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "student got chemical splashed on her arm in chemistry class, skin is red and blistering, teacher is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 and school nurse immediately.\",\"Flush burn with large amounts of cool running water for 20 minutes.\",\"Remove contaminated clothing carefully while flushing.\",\"Do not apply any creams or neutralizing agents.\",\"Cover loosely with clean sterile dressing.\",\"Identify the chemical for EMS — bring safety data sheet.\"],\"estimated_time_minutes\":20,\"condition\":\"burn_second_degree\",\"warn_message\":\"Chemical burns continue to damage tissue until fully flushed.\",\"next_question\":\"What chemical caused the burn?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "I burned my hand cooking, there are some blisters, it hurts but I can manage. I have a first aid kit at home."
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Cool burn under cool running water for 20 minutes.\",\"Do not use ice, butter, or toothpaste.\",\"Do not pop blisters.\",\"Apply sterile non-stick dressing from kit.\",\"Take ibuprofen or acetaminophen for pain.\",\"See a doctor if burn is larger than your palm or worsens.\"],\"estimated_time_minutes\":20,\"condition\":\"burn_second_degree\",\"warn_message\":\"\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "MY 2 YEAR OLD PULLED HOT COFFEE ON HIMSELF HIS CHEST IS RED AND BLISTERING WHAT DO I DO"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Remove wet clothing carefully — do not pull over blistered skin.\",\"Cool burn under cool running water for 20 minutes.\",\"Do not use ice, butter, or any creams.\",\"Do not pop blisters.\",\"Cover loosely with clean damp cloth.\",\"Keep him warm — toddlers lose heat quickly.\"],\"estimated_time_minutes\":20,\"condition\":\"burn_second_degree\",\"warn_message\":\"Burns on torso of toddler require emergency evaluation.\",\"next_question\":\"How large is the burned area — is it spreading beyond the chest?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "worker got burned by hot steam at the factory, arm and shoulder blistering, coworkers are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 and workplace first responder.\",\"Cool burn under cool running water for 20 minutes.\",\"Remove contaminated clothing carefully.\",\"Do not apply ice, butter, or any substances.\",\"Cover loosely with sterile dressing.\",\"Keep victim warm and calm.\"],\"estimated_time_minutes\":20,\"condition\":\"burn_second_degree\",\"warn_message\":\"Large area burns require hospital evaluation for fluid management.\",\"next_question\":\"How much of the body surface is burned — arm only or more?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 8 year old burned his hand on the oven, has blisters, crying, I have a first aid kit"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Cool burn under cool running water for 20 minutes.\",\"Do not use ice or home remedies.\",\"Do not pop blisters.\",\"Apply sterile non-stick dressing from kit.\",\"Give children's pain reliever for comfort.\",\"Take to doctor or urgent care for evaluation.\"],\"estimated_time_minutes\":20,\"condition\":\"burn_second_degree\",\"warn_message\":\"\",\"next_question\":\"Is the burn on the palm or fingers specifically?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "waitress spilled hot soup on her arm at the restaurant, blistering, staff are here to help"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Cool burn under cool running water for 20 minutes immediately.\",\"Remove any jewelry near the burn area.\",\"Do not apply ice, butter, or any creams.\",\"Do not pop blisters.\",\"Cover loosely with clean cloth.\",\"Seek medical care if burn is larger than palm size.\"],\"estimated_time_minutes\":20,\"condition\":\"burn_second_degree\",\"warn_message\":\"\",\"next_question\":\"How large is the burned area?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "मेरे बच्चे पर गर्म पानी गिर गया, उसकी उम्र 6 साल है, हाथ पर छाले पड़ गए हैं, बहुत रो रहा है"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"जले हुए हिस्से को 20 मिनट तक ठंडे बहते पानी से ठंडा करें।\",\"बर्फ, मक्खन या कोई क्रीम न लगाएं।\",\"छाले मत फोड़ें।\",\"साफ कपड़े से ढीला ढककर रखें।\",\"बच्चों की दर्द निवारक दवा दें।\",\"डॉक्टर के पास ले जाएं — हाथ पर छाले गंभीर हो सकते हैं।\"],\"estimated_time_minutes\":20,\"condition\":\"burn_second_degree\",\"warn_message\":\"हाथ पर जलन के लिए डॉक्टर से जरूर मिलें।\",\"next_question\":\"जला हुआ हिस्सा कितना बड़ा है — बच्चे की हथेली से बड़ा या छोटा?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "woman at restaurant is having allergic reaction, throat swelling, cant breathe, she has no epipen, HELP"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Have her sit upright to ease breathing.\",\"Ask if she has an epinephrine auto-injector — check her bag.\",\"If no epipen, do not give antihistamines — they are too slow.\",\"Keep her calm and still.\",\"If she loses consciousness and stops breathing, begin CPR.\",\"Stay with her until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"anaphylaxis\",\"warn_message\":\"Anaphylaxis without epinephrine can be fatal within minutes.\",\"next_question\":\"Is she able to speak or swallow at all right now?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "10 year old student is having severe allergic reaction at school, face swelling, trouble breathing, school nurse is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Nurse: administer epinephrine auto-injector to outer thigh.\",\"Lay child down with legs elevated unless breathing is easier sitting.\",\"Call parents immediately.\",\"A second dose of epinephrine may be given after 5-15 minutes if no improvement.\",\"Even if symptoms improve, transport to ER — biphasic reaction risk.\"],\"estimated_time_minutes\":0,\"condition\":\"anaphylaxis\",\"warn_message\":\"Epinephrine must be given — antihistamines alone are not sufficient.\",\"next_question\":\"Has the epinephrine been administered yet?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "I was stung by a bee hiking, my throat is tightening, I have my epipen with me, what do I do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Use your epinephrine auto-injector on outer thigh NOW.\",\"Call 911 immediately after injecting.\",\"Lie down with legs elevated — or sit up if breathing is easier.\",\"Do not stand or walk.\",\"A second dose can be given after 5-15 minutes if symptoms return.\",\"Go to ER even if you feel better — reactions can return.\"],\"estimated_time_minutes\":0,\"condition\":\"anaphylaxis\",\"warn_message\":\"Use epipen immediately — do not wait for symptoms to worsen.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 15 year old is having a bad allergic reaction at home, face and lips swelling, wheezing, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"If prescribed epipen, administer to outer thigh now.\",\"Have teen sit upright to ease breathing.\",\"Do not give antihistamines as primary treatment.\",\"Keep them calm and still.\",\"If they lose consciousness, lay flat and begin CPR if needed.\",\"Go to ER even after epipen — biphasic reaction can occur.\"],\"estimated_time_minutes\":0,\"condition\":\"anaphylaxis\",\"warn_message\":\"Throat swelling can close airway rapidly — epinephrine is essential.\",\"next_question\":\"Do you have an epinephrine auto-injector at home?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "i think im having an allergic reaction, my throat feels tight, im alone at home, im 68 years old"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — do not wait.\",\"If you have an epipen, use it on your outer thigh now.\",\"Sit upright to ease breathing.\",\"Unlock your front door for paramedics.\",\"Stay on the phone with 911.\",\"Do not eat or drink anything.\"],\"estimated_time_minutes\":0,\"condition\":\"anaphylaxis\",\"warn_message\":\"Alone with anaphylaxis — call 911 immediately, do not delay.\",\"next_question\":\"Do you have an epinephrine auto-injector?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "coworker is having allergic reaction in office, face swelling, hives everywhere, difficulty breathing, no kit here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Ask if he has an epipen — check his desk or bag.\",\"Have him sit upright to ease breathing.\",\"Loosen tight clothing around neck and chest.\",\"Keep him calm and still.\",\"If he collapses and stops breathing, begin CPR.\"],\"estimated_time_minutes\":0,\"condition\":\"anaphylaxis\",\"warn_message\":\"Anaphylaxis progresses rapidly — epinephrine and EMS are critical.\",\"next_question\":\"Does he have any known allergies or carry an epipen?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "7 year old at birthday party ate something and now has hives, swollen lips, and is wheezing, adults are present"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Ask parents if child has an epipen — administer if available.\",\"Have child sit upright or lie with legs raised.\",\"Remove any suspected allergen from reach.\",\"Keep child calm and still.\",\"Do not give food, drink, or antihistamines as sole treatment.\",\"Stay with child until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"anaphylaxis\",\"warn_message\":\"Child anaphylaxis — epinephrine is the only effective immediate treatment.\",\"next_question\":\"Does the child have a known food allergy or prescribed epipen?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "im in the car, passenger is having allergic reaction, throat swelling, she can barely breathe, driving to hospital"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Pull over and call 911 immediately — do not drive to hospital.\",\"If she has an epipen, administer to outer thigh now.\",\"Have her sit upright to ease breathing.\",\"Loosen any tight clothing around neck.\",\"Stay on line with 911 for guidance.\",\"Ambulance is faster and safer than driving.\"],\"estimated_time_minutes\":0,\"condition\":\"anaphylaxis\",\"warn_message\":\"Do not drive — call 911, ambulance can treat en route.\",\"next_question\":\"Does she have an epinephrine auto-injector with her?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my friend at the restaurant is having a reaction, she ate shrimp, throat is closing, she's 17, friends are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Ask if she has an epipen — administer to outer thigh if available.\",\"Have her sit upright to ease breathing.\",\"Do not give water or food.\",\"Keep her calm and still.\",\"If she loses consciousness, lay flat and begin CPR if needed.\"],\"estimated_time_minutes\":0,\"condition\":\"anaphylaxis\",\"warn_message\":\"Shellfish anaphylaxis can close airway within minutes.\",\"next_question\":\"Does she carry an epinephrine auto-injector?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Ayuda! Adulto picado por abeja, garganta hinchada, no puede respirar bien, estamos afuera, no tiene epipen"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Llama al 911 inmediatamente.\",\"Siéntalo erguido para facilitar la respiración.\",\"Afloja ropa ajustada alrededor del cuello.\",\"No le des antihistamínicos como único tratamiento.\",\"Mantén a la persona tranquila y quieta.\",\"Si pierde el conocimiento, inicia RCP.\"],\"estimated_time_minutes\":0,\"condition\":\"anaphylaxis\",\"warn_message\":\"Anafilaxia sin epinefrina puede ser fatal en minutos.\",\"next_question\":\"¿Tiene algún autoinyector de epinefrina disponible?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "man in our office is having a seizure, shaking on the floor, 35 years old, what do we do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 if seizure lasts over 5 minutes or he doesn't wake up.\",\"Clear area of hard or sharp objects around him.\",\"Do NOT hold him down or restrain movements.\",\"Do NOT put anything in his mouth.\",\"Gently cushion his head with something soft.\",\"Turn him on his side after shaking stops to protect airway.\",\"Time the seizure — note start and end.\"],\"estimated_time_minutes\":5,\"condition\":\"seizure\",\"warn_message\":\"\",\"next_question\":\"Does he have a known seizure disorder? How long has it been going on?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 6 year old is having a seizure at home, shaking all over, eyes rolled back, im so scared"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately for a child's first seizure.\",\"Clear area around her — remove hard objects.\",\"Do NOT restrain her movements.\",\"Do NOT put anything in her mouth.\",\"Cushion her head gently with a folded cloth.\",\"Time the seizure from start.\",\"After shaking stops, turn her on her side.\"],\"estimated_time_minutes\":0,\"condition\":\"seizure\",\"warn_message\":\"First seizure in a child always requires emergency evaluation.\",\"next_question\":\"Has she ever had a seizure before? Does she have a fever?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my elderly neighbor is having a seizure, she lives alone, i found her on the floor shaking, im calling for her"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Clear area of hard objects around her.\",\"Do NOT restrain her or put anything in her mouth.\",\"Cushion her head gently.\",\"Time the seizure.\",\"After shaking stops, turn her on her side.\",\"Stay with her until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"seizure\",\"warn_message\":\"Elderly seizure — fall injury and prolonged seizure are serious risks.\",\"next_question\":\"Is she still shaking or has the shaking stopped?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "student having seizure in classroom, 14 years old, teacher is present, shaking on floor"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Send student to call 911 and school nurse.\",\"Clear area around student — move desks away.\",\"Do NOT restrain or hold down.\",\"Do NOT put anything in mouth.\",\"Cushion head with jacket or bag.\",\"Time the seizure.\",\"After shaking stops, turn on side and monitor breathing.\"],\"estimated_time_minutes\":0,\"condition\":\"seizure\",\"warn_message\":\"\",\"next_question\":\"Does this student have a known seizure condition on file?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "woman in the park is having what looks like a seizure, shaking on the grass, people are watching"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":true,\"steps\":[\"Call 911 if seizure lasts more than 5 minutes.\",\"Ask bystanders to give space — clear the area.\",\"Do NOT restrain her movements.\",\"Do NOT put anything in her mouth.\",\"Cushion her head with a bag or clothing.\",\"Time the seizure.\",\"After shaking stops, turn her on her side.\"],\"estimated_time_minutes\":5,\"condition\":\"seizure\",\"warn_message\":\"\",\"next_question\":\"How long has the seizure been going on?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "MY 1 YEAR OLD BABY IS HAVING A SEIZURE SHAKING ALL OVER WHAT DO I DO PLEASE HELP"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Lay baby on a soft flat surface — floor with blanket.\",\"Do NOT restrain movements.\",\"Do NOT put anything in baby's mouth.\",\"Turn baby on side after shaking stops.\",\"Check for fever — febrile seizures are common but still need evaluation.\",\"Stay on line with 911.\"],\"estimated_time_minutes\":0,\"condition\":\"seizure\",\"warn_message\":\"Infant seizure always requires immediate emergency evaluation.\",\"next_question\":\"Does the baby have a fever? How long has the seizure lasted?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "passenger in my car is having a seizure, I pulled over, he's shaking in the seat, what do I do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Put car in park and turn on hazard lights.\",\"Do NOT restrain him.\",\"Protect his head from hitting the window or door.\",\"Do NOT put anything in his mouth.\",\"After shaking stops, recline seat and turn him on his side.\",\"Time the seizure.\"],\"estimated_time_minutes\":0,\"condition\":\"seizure\",\"warn_message\":\"\",\"next_question\":\"Does he have a known seizure disorder?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "elderly man having seizure at restaurant, staff are here, he's shaking on the floor near his table"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Clear area — move chairs and tables away.\",\"Do NOT restrain him or put anything in his mouth.\",\"Cushion his head with a folded napkin or jacket.\",\"Time the seizure.\",\"After shaking stops, turn him on his side.\",\"Stay with him until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"seizure\",\"warn_message\":\"\",\"next_question\":\"Is he wearing a medical alert bracelet?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "woman at the gym had a seizure, she's stopped shaking now but is confused, trainer is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":true,\"steps\":[\"Call 911 — post-seizure confusion is normal but needs evaluation.\",\"Keep her lying on her side in recovery position.\",\"Stay calm and speak reassuringly to her.\",\"Do not give food or water yet.\",\"Do not leave her alone.\",\"Note how long the seizure lasted and any injuries from fall.\"],\"estimated_time_minutes\":10,\"condition\":\"seizure\",\"warn_message\":\"\",\"next_question\":\"Did she injure herself during the seizure? Does she have a known seizure history?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "मेरे दोस्त को दौरा पड़ रहा है, वो हिल रहा है, जमीन पर है, मैं क्या करूं"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"112 पर कॉल करें।\",\"उसके आसपास से कठोर चीजें हटाएं।\",\"उसे रोकें नहीं और मुंह में कुछ न डालें।\",\"उसके सिर के नीचे कुछ नरम रखें।\",\"दौरे का समय नोट करें।\",\"दौरा रुकने के बाद उसे करवट पर लिटाएं।\"],\"estimated_time_minutes\":5,\"condition\":\"seizure\",\"warn_message\":\"\",\"next_question\":\"क्या उसे पहले भी दौरे आए हैं? दौरा कितने समय से है?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my husband 70 years old is acting strange, face drooping on one side, arm weak, speech slurred, at home"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — note the exact time symptoms started.\",\"Use FAST: Face drooping, Arm weakness, Speech difficulty, Time to call.\",\"Do NOT give food, water, or aspirin.\",\"Have him sit or lie down comfortably.\",\"Do not drive him — ambulance can begin treatment en route.\",\"Unlock door for paramedics.\",\"Stay with him and keep him calm.\"],\"estimated_time_minutes\":0,\"condition\":\"stroke\",\"warn_message\":\"Stroke treatment window is 3-4.5 hours — every minute counts.\",\"next_question\":\"What time exactly did the symptoms start?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "coworker 52 female suddenly can't speak properly, one arm is drooping, she looks confused, we're in the office"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — note the time symptoms began.\",\"Do NOT give her anything to eat or drink.\",\"Have her sit or lie down safely.\",\"Do not leave her alone.\",\"Do not drive her to hospital — call ambulance.\",\"Reassure her calmly while waiting for EMS.\"],\"estimated_time_minutes\":0,\"condition\":\"stroke\",\"warn_message\":\"Stroke — time-sensitive treatment can prevent permanent disability.\",\"next_question\":\"When exactly did her symptoms start?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "im calling for my 75 year old mother, she woke up and her face is drooping, she cant lift her arm, shes alone and called me"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Tell her to call 911 immediately or call for her.\",\"Keep her on the phone — do not hang up.\",\"Tell her to sit or lie down and not move.\",\"Do not give food or water.\",\"Tell her to unlock the door if she can.\",\"Drive to her only after 911 is called.\"],\"estimated_time_minutes\":0,\"condition\":\"stroke\",\"warn_message\":\"Stroke symptoms — every minute of delay causes more brain damage.\",\"next_question\":\"When did she first notice the symptoms?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "man in the park, 48 years old, suddenly fell, one side of face drooping, cant speak, bystanders around"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — note the time.\",\"Keep him lying down comfortably.\",\"Do NOT give food, water, or medication.\",\"Do not move him unnecessarily.\",\"Reassure him — he may be frightened.\",\"Stay with him until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"stroke\",\"warn_message\":\"Stroke in public — do not drive, ambulance is essential.\",\"next_question\":\"What time did the symptoms start?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "elderly man at our restaurant, 65, suddenly confused, slurred speech, arm weak, staff are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — note the time symptoms started.\",\"Have him sit safely — do not let him stand or walk.\",\"Do not give food or water.\",\"Clear area around him.\",\"Reassure him calmly.\",\"Stay with him until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"stroke\",\"warn_message\":\"Stroke — clot-busting treatment must begin within 4.5 hours.\",\"next_question\":\"When did the symptoms begin?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "im a passenger, driver 58 female suddenly has face drooping and cant grip the wheel, we pulled over"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — note the time.\",\"Take control of the vehicle safely.\",\"Have her sit reclined in the seat.\",\"Do not give food or water.\",\"Do not drive her to hospital — wait for ambulance.\",\"Stay with her and keep her calm.\"],\"estimated_time_minutes\":0,\"condition\":\"stroke\",\"warn_message\":\"Do not drive a stroke patient — ambulance can begin treatment en route.\",\"next_question\":\"When did the symptoms start?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 80 year old grandmother seems off today, slight confusion, one arm a bit weak, caregiver is with her"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 — even mild stroke symptoms need urgent evaluation.\",\"Note the time symptoms were first noticed.\",\"Have her sit or lie down comfortably.\",\"Do not give food or water.\",\"Do not leave her alone.\",\"Bring list of her medications for EMS.\"],\"estimated_time_minutes\":0,\"condition\":\"stroke\",\"warn_message\":\"TIA or mild stroke — symptoms can worsen rapidly.\",\"next_question\":\"When did you first notice the change in her behavior?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "man at the gym, 45, suddenly has severe headache, face drooping, trainer is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — note the time.\",\"Have him sit or lie down — stop all exercise.\",\"Do not give food, water, or pain medication.\",\"Do not leave him alone.\",\"Reassure him calmly.\",\"Stay with him until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"stroke\",\"warn_message\":\"Sudden severe headache with neurological signs — possible hemorrhagic stroke.\",\"next_question\":\"Did he describe the headache as the worst of his life?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "17 year old student at school, sudden severe headache, one side of face numb, teacher noticed something wrong"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — stroke is rare in teens but possible.\",\"Note the exact time symptoms started.\",\"Have student sit or lie down.\",\"Do not give food, water, or medication.\",\"Call parents immediately.\",\"Stay with student until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"stroke\",\"warn_message\":\"Stroke in young people requires immediate evaluation — do not dismiss.\",\"next_question\":\"Does the student have any known clotting disorders or heart conditions?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "بوڑھے آدمی کا چہرہ ایک طرف سے جھک گیا ہے، بات نہیں کر پا رہے، ہاتھ اٹھا نہیں سکتے، گھر میں ہیں"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"ابھی 115 پر کال کریں — علامات شروع ہونے کا وقت نوٹ کریں۔\",\"انہیں بیٹھا یا لٹا دیں۔\",\"کھانا یا پانی بالکل نہ دیں۔\",\"انہیں اکیلا نہ چھوڑیں۔\",\"دروازہ کھلا رکھیں ایمبولینس کے لیے۔\",\"EMS آنے تک ان کے ساتھ رہیں۔\"],\"estimated_time_minutes\":0,\"condition\":\"stroke\",\"warn_message\":\"فالج — علاج کی کھڑکی صرف 4.5 گھنٹے ہے۔\",\"next_question\":\"علامات کب سے شروع ہوئی ہیں؟\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "coworker is shaking, sweating, confused, he says he's diabetic and his sugar is low, we're in the office"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"Give him fast-acting sugar immediately: 4 glucose tablets, or 4 oz juice, or regular soda.\",\"Have him sit down safely.\",\"Wait 15 minutes and recheck — give another dose if still symptomatic.\",\"Once improved, give a snack with protein and carbs.\",\"Do not leave him alone.\",\"Call 911 if he loses consciousness or doesn't improve in 15 minutes.\"],\"estimated_time_minutes\":15,\"condition\":\"diabetic_hypoglycemia\",\"warn_message\":\"\",\"next_question\":\"Is he conscious and able to swallow safely right now?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my elderly mother is shaking and confused at home, she's diabetic, she's alone and called me, what do i tell her"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Tell her to call 911 or call for her immediately.\",\"If she can swallow, tell her to drink juice or eat glucose tablets.\",\"Tell her to sit or lie down.\",\"Stay on the phone with her.\",\"If she becomes unresponsive, call 911 immediately.\",\"Do not leave her on the phone alone.\"],\"estimated_time_minutes\":0,\"condition\":\"diabetic_hypoglycemia\",\"warn_message\":\"Elderly alone with hypoglycemia — call 911 if she cannot treat herself.\",\"next_question\":\"Can she swallow safely and is she still conscious?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "10 year old student is shaking and pale, says she feels dizzy, teacher knows she's diabetic"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Give her fast-acting sugar: glucose tablets, juice, or regular soda.\",\"Have her sit down.\",\"Wait 15 minutes — recheck symptoms.\",\"Give a snack with protein once she improves.\",\"Call parents immediately.\",\"Call 911 if she loses consciousness or doesn't improve.\"],\"estimated_time_minutes\":15,\"condition\":\"diabetic_hypoglycemia\",\"warn_message\":\"\",\"next_question\":\"Does the school have a glucagon kit for her?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "im driving alone and i feel shaky, sweaty, confused, i know my blood sugar is low, what do i do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"Pull over immediately and stop the car.\",\"Eat glucose tablets, candy, or drink juice from your bag.\",\"Do not drive until symptoms fully resolve.\",\"Wait 15 minutes after eating before rechecking.\",\"Call someone to pick you up if needed.\",\"Call 911 if symptoms worsen or you feel unable to treat yourself.\"],\"estimated_time_minutes\":15,\"condition\":\"diabetic_hypoglycemia\",\"warn_message\":\"Do not drive while hypoglycemic — pull over immediately.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen athlete on the field is shaky and confused, coach knows he's diabetic, he can still talk"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Give fast-acting sugar: sports drink, glucose tablets, or juice.\",\"Have him sit down and rest.\",\"Wait 15 minutes and reassess.\",\"Give a snack with protein and carbs once improved.\",\"Do not let him return to play until fully recovered.\",\"Call 911 if he loses consciousness.\"],\"estimated_time_minutes\":15,\"condition\":\"diabetic_hypoglycemia\",\"warn_message\":\"\",\"next_question\":\"Does he have his glucose meter or glucagon kit with him?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my husband is diabetic, he's very confused and shaking at home, he can barely respond to me"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 if he cannot swallow safely.\",\"If he can swallow, give glucose gel inside his cheek or juice.\",\"Do not give solid food if he is confused.\",\"If glucagon kit available, administer per instructions.\",\"Lay him on his side if he loses consciousness.\",\"Stay with him until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"diabetic_hypoglycemia\",\"warn_message\":\"Severe hypoglycemia with altered consciousness — glucagon or IV glucose needed.\",\"next_question\":\"Do you have a glucagon emergency kit at home?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "hiker with me says he's diabetic and feels really shaky and weak, we're outdoors, have some snacks"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Give him fast-acting sugar: candy, juice, or sugary snack.\",\"Have him sit down and rest.\",\"Wait 15 minutes and reassess.\",\"Give a more substantial snack once he improves.\",\"Do not continue hiking until fully recovered.\",\"Call 911 if he loses consciousness or doesn't improve.\"],\"estimated_time_minutes\":15,\"condition\":\"diabetic_hypoglycemia\",\"warn_message\":\"\",\"next_question\":\"Does he have his glucose meter or any glucose tablets?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "customer at our restaurant seems confused and shaky, staff noticed, she mentioned she's diabetic"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Bring her orange juice or regular soda immediately.\",\"Have her sit down safely.\",\"Stay with her while she drinks.\",\"Wait 15 minutes and check if she improves.\",\"Offer a small meal once she feels better.\",\"Call 911 if she loses consciousness or doesn't improve.\"],\"estimated_time_minutes\":15,\"condition\":\"diabetic_hypoglycemia\",\"warn_message\":\"\",\"next_question\":\"Is she able to swallow and is she fully conscious?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 8 year old is shaking and crying, she's diabetic, she says she feels really bad, parent is home"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Give her glucose tablets, juice, or regular soda immediately.\",\"Have her sit or lie down.\",\"Wait 15 minutes and recheck.\",\"Give a snack with protein once she improves.\",\"Check her blood sugar if meter is available.\",\"Call 911 if she loses consciousness or doesn't improve.\"],\"estimated_time_minutes\":15,\"condition\":\"diabetic_hypoglycemia\",\"warn_message\":\"\",\"next_question\":\"What is her blood sugar reading if you can check it?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Ayuda! Mi esposo diabético está temblando mucho y confundido, apenas puede hablar, estamos en casa"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Llama al 911 si no puede tragar con seguridad.\",\"Si puede tragar, dale jugo de naranja o refresco regular.\",\"No le des comida sólida si está confundido.\",\"Si tienes glucagón, adminístralo según las instrucciones.\",\"Acuéstalo de lado si pierde el conocimiento.\",\"Quédate con él hasta que llegue la ambulancia.\"],\"estimated_time_minutes\":0,\"condition\":\"diabetic_hypoglycemia\",\"warn_message\":\"Hipoglucemia severa — necesita glucosa intravenosa o glucagón.\",\"next_question\":\"¿Tienen un kit de glucagón en casa?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my friend is unconscious, barely breathing, lips are blue, we think he took too many pills, we're at home"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Check for naloxone (Narcan) — administer one spray in one nostril.\",\"Place him in recovery position on his side.\",\"Tilt head back gently to open airway.\",\"If not breathing, begin rescue breathing.\",\"Give second naloxone dose after 2-3 minutes if no response.\",\"Stay with him until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"opioid_overdose\",\"warn_message\":\"Opioid overdose — naloxone and rescue breathing can save his life.\",\"next_question\":\"Do you have naloxone (Narcan) available?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "i found my 17 year old in the bathroom, not responding, very slow breathing, i think he took something"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Check for naloxone — administer if available.\",\"Place him on his side in recovery position.\",\"Tilt head back to open airway.\",\"If not breathing, give rescue breaths.\",\"Stay on line with 911.\",\"Do not leave him alone.\"],\"estimated_time_minutes\":0,\"condition\":\"opioid_overdose\",\"warn_message\":\"Teen unresponsive — opioid overdose requires immediate naloxone and EMS.\",\"next_question\":\"Is he breathing at all? Do you have naloxone?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "person collapsed outside, barely breathing, pinpoint pupils, bystander found them, looks like overdose"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Check for naloxone — ask bystanders or nearby pharmacy.\",\"Place person on their side in recovery position.\",\"Tilt head back to open airway.\",\"If not breathing, give rescue breaths.\",\"Administer naloxone if available — one spray per nostril.\",\"Stay with them until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"opioid_overdose\",\"warn_message\":\"Opioid overdose — brain damage from oxygen deprivation begins in minutes.\",\"next_question\":\"Is the person breathing at all?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "passenger in my car is unresponsive, slow gurgling breathing, I pulled over, think it's an overdose"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Check for naloxone in their belongings — administer if found.\",\"Recline seat and turn them on their side.\",\"Tilt head back to open airway.\",\"If not breathing, give rescue breaths.\",\"Stay on line with 911.\"],\"estimated_time_minutes\":0,\"condition\":\"opioid_overdose\",\"warn_message\":\"Gurgling breathing indicates airway compromise — act immediately.\",\"next_question\":\"Do you have naloxone available?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "i think my elderly neighbor overdosed on his pain medication, he's barely awake, im calling for him, hes alone"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Go to him or send someone immediately.\",\"If he has naloxone, administer it.\",\"Place him on his side in recovery position.\",\"Keep him awake by talking to him.\",\"Do not give coffee or water.\",\"Stay with him until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"opioid_overdose\",\"warn_message\":\"Elderly opioid overdose — respiratory depression can be fatal quickly.\",\"next_question\":\"Is he still conscious and breathing?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my roommate overdosed, she's barely breathing, I have Narcan here, what do I do with it"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Lay her on her back, tilt head back to open airway.\",\"Insert Narcan nasal spray nozzle into one nostril, press plunger.\",\"Place her on her side in recovery position.\",\"If no response in 2-3 minutes, give second dose in other nostril.\",\"If not breathing, give rescue breaths.\",\"Stay with her — naloxone wears off before opioids do.\"],\"estimated_time_minutes\":0,\"condition\":\"opioid_overdose\",\"warn_message\":\"Naloxone wears off in 30-90 min — she must go to hospital.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen at a party is unresponsive, slow breathing, friends are scared, think he took something"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — do not hesitate.\",\"Check for naloxone — ask everyone present.\",\"Place him on his side in recovery position.\",\"Tilt head back to open airway.\",\"If not breathing, give rescue breaths.\",\"Administer naloxone if available.\",\"Stay with him — do not leave him alone.\"],\"estimated_time_minutes\":0,\"condition\":\"opioid_overdose\",\"warn_message\":\"Do not fear legal consequences — call 911 immediately.\",\"next_question\":\"Is he breathing? Do you know what he took?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "man in an alley, unresponsive, blue lips, very slow breathing, I'm a bystander, no kit"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Ask nearby businesses for naloxone — many pharmacies carry it.\",\"Place him on his side in recovery position.\",\"Tilt head back to open airway.\",\"If not breathing, give rescue breaths if willing.\",\"Stay with him until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"opioid_overdose\",\"warn_message\":\"Blue lips indicate severe oxygen deprivation — every second counts.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "woman at home overdosed, barely breathing, I called a doctor who is on the way, what do I do now"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — do not wait for doctor.\",\"Administer naloxone if available.\",\"Place her on her side in recovery position.\",\"Tilt head back to open airway.\",\"If not breathing, give rescue breaths.\",\"Stay on line with 911.\",\"Keep her warm.\"],\"estimated_time_minutes\":0,\"condition\":\"opioid_overdose\",\"warn_message\":\"Call 911 — ambulance can administer IV naloxone and oxygen en route.\",\"next_question\":\"Is she breathing? Do you have naloxone?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "मेरा दोस्त बेहोश है, बहुत धीरे सांस ले रहा है, उसने कुछ ले लिया है, मैं क्या करूं"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"112 पर तुरंत कॉल करें।\",\"अगर नालोक्सोन (Narcan) है तो नाक में स्प्रे करें।\",\"उसे करवट पर लिटाएं।\",\"सिर पीछे झुकाएं ताकि सांस की नली खुले।\",\"अगर सांस नहीं ले रहा तो मुंह से सांस दें।\",\"उसे अकेला न छोड़ें।\"],\"estimated_time_minutes\":0,\"condition\":\"opioid_overdose\",\"warn_message\":\"ओपिओइड ओवरडोज — तुरंत नालोक्सोन और एम्बुलेंस जरूरी है।\",\"next_question\":\"क्या उसके पास नालोक्सोन है? क्या वो सांस ले रहा है?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 8 year old fell off the monkey bars and hit his head, he's crying but seems confused, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 — confusion after head injury in a child is serious.\",\"Keep him still and calm — do not let him run around.\",\"Do not give pain medication yet.\",\"Check for unequal pupils, vomiting, or worsening confusion.\",\"Do not let him fall asleep without monitoring.\",\"Take him to ER immediately.\"],\"estimated_time_minutes\":0,\"condition\":\"head_injury\",\"warn_message\":\"Confusion after head injury in a child requires immediate evaluation.\",\"next_question\":\"Did he lose consciousness at all, even briefly?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teammate got hit in the head during football, he's dazed and doesn't remember what happened, teammates are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"Remove him from play immediately.\",\"Have him sit down in a quiet area.\",\"Do not leave him alone.\",\"Do not give aspirin or ibuprofen.\",\"Watch for: worsening headache, vomiting, confusion, unequal pupils.\",\"Take him to ER for concussion evaluation.\",\"He must not return to play today.\"],\"estimated_time_minutes\":15,\"condition\":\"head_injury\",\"warn_message\":\"Suspected concussion — return to play risks second impact syndrome.\",\"next_question\":\"Did he lose consciousness? Is he vomiting?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "i fell and hit my head at home, i have a headache, im 75 years old and alone"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 or a family member immediately.\",\"Sit or lie down — do not move around.\",\"Do not take aspirin or ibuprofen — they increase bleeding risk.\",\"Watch for: worsening headache, confusion, vomiting, weakness.\",\"Elderly on blood thinners have higher brain bleed risk.\",\"Go to ER even if symptoms seem mild.\"],\"estimated_time_minutes\":0,\"condition\":\"head_injury\",\"warn_message\":\"Elderly head injury — brain bleed risk is high, especially on blood thinners.\",\"next_question\":\"Are you on blood thinners or aspirin?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen in car accident, hit head on windshield, unconscious for a minute, now awake but confused, bystanders here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Keep him still — assume possible spinal injury.\",\"Do not move his head or neck.\",\"Keep him awake and talking.\",\"Do not give food, water, or medication.\",\"Monitor breathing and consciousness.\",\"Stay with him until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"head_injury\",\"warn_message\":\"Loss of consciousness after head trauma — possible brain injury and spinal injury.\",\"next_question\":\"Is he able to move all four limbs?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "construction worker fell and hit his head, has a hard hat but still has a headache, coworkers are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"Have him sit down and rest immediately.\",\"Remove him from work duties.\",\"Do not give aspirin or ibuprofen.\",\"Watch for: worsening headache, vomiting, confusion, unequal pupils.\",\"Take him to ER or occupational health for evaluation.\",\"Do not let him drive himself.\"],\"estimated_time_minutes\":20,\"condition\":\"head_injury\",\"warn_message\":\"\",\"next_question\":\"Did he lose consciousness or have any memory gap?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 5 year old bumped his head on the coffee table, has a small bump, crying but seems okay, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Apply ice pack wrapped in cloth to the bump for 20 minutes.\",\"Keep him calm and monitor closely.\",\"Watch for: vomiting, unusual sleepiness, unequal pupils, worsening headache.\",\"Let him rest but check on him every hour.\",\"Call 911 if any warning signs appear.\",\"See a doctor if concerned.\"],\"estimated_time_minutes\":20,\"condition\":\"head_injury\",\"warn_message\":\"\",\"next_question\":\"Did he lose consciousness at all, even briefly?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my elderly husband fell and hit his head, he has a headache but is awake and talking, spouse is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 or take him to ER immediately.\",\"Have him sit or lie down.\",\"Do not give aspirin or ibuprofen.\",\"Watch for: worsening headache, confusion, vomiting, weakness.\",\"Bring list of his medications — especially blood thinners.\",\"Do not leave him alone.\"],\"estimated_time_minutes\":0,\"condition\":\"head_injury\",\"warn_message\":\"Elderly head injury — even minor trauma can cause serious brain bleed.\",\"next_question\":\"Is he on any blood thinners or anticoagulants?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "woman fell while hiking and hit her head on a rock, has a headache, bystanders are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Have her sit down and rest.\",\"Apply cold compress to the area if available.\",\"Do not give aspirin or ibuprofen.\",\"Watch for: vomiting, confusion, worsening headache, unequal pupils.\",\"Escort her off the trail and to medical care.\",\"Call 911 if symptoms worsen.\"],\"estimated_time_minutes\":20,\"condition\":\"head_injury\",\"warn_message\":\"\",\"next_question\":\"Did she lose consciousness or have any memory gap?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen got hit in the head during soccer, has a headache, coach is here, seems okay but dazed"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Remove him from play immediately.\",\"Have him sit in a quiet area.\",\"Do not give aspirin or ibuprofen.\",\"Watch for: worsening headache, vomiting, confusion.\",\"Call parents and recommend ER evaluation.\",\"He must not return to play today.\"],\"estimated_time_minutes\":20,\"condition\":\"head_injury\",\"warn_message\":\"\",\"next_question\":\"Did he lose consciousness or have any memory gap?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Mi hijo de 7 años se cayó y se golpeó la cabeza en el parque, está llorando y tiene un chichón grande"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Aplica hielo envuelto en tela por 20 minutos.\",\"Mantenlo tranquilo y sentado.\",\"Observa: vómitos, somnolencia inusual, pupilas desiguales.\",\"No le des aspirina ni ibuprofeno.\",\"Lleva al médico si el chichón es muy grande o empeora.\",\"Llama al 911 si pierde el conocimiento.\"],\"estimated_time_minutes\":20,\"condition\":\"head_injury\",\"warn_message\":\"\",\"next_question\":\"¿Perdió el conocimiento aunque sea por un momento?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "car accident, adult male hit the windshield, complaining of neck pain, cant feel his legs, bystanders here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Do NOT move him — keep him completely still.\",\"Tell him not to move his head or neck.\",\"Support his head in the position found if he is moving.\",\"Do not remove helmet if wearing one.\",\"Keep him warm and calm.\",\"Stay with him until EMS arrives with spinal board.\"],\"estimated_time_minutes\":0,\"condition\":\"spinal_injury\",\"warn_message\":\"Moving a spinal injury victim can cause permanent paralysis.\",\"next_question\":\"Can he feel and move his hands and feet?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen dived into shallow end of pool, hit bottom, now floating face down, lifeguard is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Lifeguard: support head and neck in neutral position in water.\",\"Float victim face-up keeping spine aligned.\",\"Remove from water only with spinal precautions if trained.\",\"If not breathing, begin rescue breathing while supporting neck.\",\"Do not bend or twist the spine.\",\"Continue until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"spinal_injury\",\"warn_message\":\"Diving spinal injury — improper movement can cause permanent paralysis.\",\"next_question\":\"Is the victim breathing?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "coworker fell from a ladder, landed on her back, has back pain and tingling in her legs, coworkers are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Tell her not to move.\",\"Do not move her unless she is in immediate danger.\",\"Keep her still and calm.\",\"Do not give food or water.\",\"Keep her warm with a jacket.\",\"Stay with her until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"spinal_injury\",\"warn_message\":\"Tingling after fall — possible spinal injury, do not move.\",\"next_question\":\"Can she feel and move her feet?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "elderly man fell down the stairs at home, has severe back pain, cant move, he's alone and called me"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately for him or call yourself.\",\"Tell him not to move at all.\",\"Stay on the phone with him.\",\"Tell him to keep still until paramedics arrive.\",\"Do not tell him to try to get up.\",\"Go to him after 911 is called.\"],\"estimated_time_minutes\":0,\"condition\":\"spinal_injury\",\"warn_message\":\"Do not move — spinal injury must be stabilized by EMS.\",\"next_question\":\"Can he feel his legs and feet?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "rugby player tackled hard, lying on field, neck pain, not moving, teammates are around"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Tell everyone to stand back — do not move him.\",\"Keep his head and neck still.\",\"Do not remove his helmet.\",\"Keep him calm and talking.\",\"If he stops breathing, carefully open airway without moving neck.\",\"Wait for EMS with spinal board.\"],\"estimated_time_minutes\":0,\"condition\":\"spinal_injury\",\"warn_message\":\"Suspected cervical spine injury — do not move under any circumstances.\",\"next_question\":\"Can he feel and move his hands and feet?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 10 year old fell off the trampoline and landed on his neck, he's crying and says his neck hurts, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Tell him not to move his head or neck.\",\"Keep him still where he is.\",\"Do not pick him up or move him.\",\"Reassure him calmly.\",\"Stay with him until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"spinal_injury\",\"warn_message\":\"Child neck injury after fall — do not move until cleared by EMS.\",\"next_question\":\"Can he feel and move his arms and legs?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "woman in car accident, airbag deployed, she has neck pain and arm numbness, passenger is calling"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Tell her not to move her head or neck.\",\"Do not remove her from the vehicle unless there is fire risk.\",\"Keep her still and calm.\",\"Do not give food or water.\",\"Stay with her until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"spinal_injury\",\"warn_message\":\"Neck pain with numbness after accident — possible cervical spine injury.\",\"next_question\":\"Can she feel and move all four limbs?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "elderly woman fell in the garden, has back pain, caregiver is with her, she can move her legs"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 — elderly falls with back pain need evaluation.\",\"Keep her still where she is.\",\"Do not help her up.\",\"Keep her warm and calm.\",\"Note if she can feel and move all limbs.\",\"Stay with her until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"spinal_injury\",\"warn_message\":\"Elderly back pain after fall — possible vertebral fracture.\",\"next_question\":\"Is she on osteoporosis medication?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "construction worker fell from scaffolding, landed on his back, severe pain, cant move legs, coworkers here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Do NOT move him.\",\"Keep everyone back — clear the area.\",\"Keep him still and calm.\",\"Do not give food or water.\",\"Keep him warm.\",\"Stay with him until EMS arrives with spinal board.\"],\"estimated_time_minutes\":0,\"condition\":\"spinal_injury\",\"warn_message\":\"Cannot move legs after fall — possible spinal cord injury.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "بندہ سیڑھیوں سے گرا ہے، گردن میں درد ہے، ہاتھ پاؤں میں سنسناہٹ ہے، ہم باہر ہیں"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"ابھی 115 پر کال کریں۔\",\"اسے بالکل نہ ہلائیں۔\",\"اس کا سر اور گردن بالکل سیدھا رکھیں۔\",\"اسے پرسکون رکھیں۔\",\"کھانا یا پانی نہ دیں۔\",\"EMS آنے تک اس کے ساتھ رہیں۔\"],\"estimated_time_minutes\":0,\"condition\":\"spinal_injury\",\"warn_message\":\"ریڑھ کی ہڈی کی چوٹ — ہلانے سے مستقل معذوری ہو سکتی ہے۔\",\"next_question\":\"کیا وہ اپنے ہاتھ پاؤں محسوس کر سکتا ہے؟\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "MY 6 YEAR OLD FELL IN THE POOL AND ISNT BREATHING PLEASE HELP"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Remove child from water carefully.\",\"Lay her on her back on a firm surface.\",\"Tilt head back, lift chin to open airway.\",\"Give 2 rescue breaths — watch for chest rise.\",\"Begin CPR: 30 chest compressions, 2 breaths.\",\"Continue until EMS arrives or she breathes.\"],\"estimated_time_minutes\":0,\"condition\":\"drowning\",\"warn_message\":\"Drowning — begin rescue breathing immediately, every second counts.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "man pulled from ocean, not breathing, bystanders on beach, someone knows CPR"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Lay him on his back on firm ground.\",\"Tilt head back, lift chin to open airway.\",\"Give 2 rescue breaths — watch for chest rise.\",\"Begin CPR: 30 compressions, 2 breaths.\",\"Continue CPR cycles until EMS arrives.\",\"Keep him warm — drowning victims lose heat rapidly.\"],\"estimated_time_minutes\":0,\"condition\":\"drowning\",\"warn_message\":\"Begin CPR immediately — drowning victims can survive with prompt resuscitation.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen pulled from lake, unconscious, barely breathing, friends are here, we're at a campsite"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Lay him on his back on firm ground.\",\"Tilt head back, lift chin to open airway.\",\"Give 2 rescue breaths.\",\"Begin CPR: 30 compressions, 2 breaths.\",\"Continue until he breathes or EMS arrives.\",\"Keep him warm.\"],\"estimated_time_minutes\":0,\"condition\":\"drowning\",\"warn_message\":\"All drowning victims need hospital evaluation even if they recover.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "MY TODDLER 2 YEARS OLD WAS IN THE BATHTUB I TURNED AWAY FOR A SECOND AND NOW SHES NOT BREATHING"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — put on speaker.\",\"Remove her from tub, lay on firm surface.\",\"Tilt head back gently, lift chin.\",\"Give 2 small gentle rescue breaths.\",\"Begin infant CPR: 30 compressions with 2 fingers, 2 breaths.\",\"Continue until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"drowning\",\"warn_message\":\"Infant drowning — begin CPR immediately, do not stop.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "woman pulled from pool, not breathing, lifeguard is present and starting CPR"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately if not done.\",\"Lifeguard: continue CPR — 30 compressions, 2 breaths.\",\"Use AED if available at pool facility.\",\"Keep her warm with towels.\",\"Continue CPR until EMS arrives.\",\"All drowning victims need hospital evaluation.\"],\"estimated_time_minutes\":0,\"condition\":\"drowning\",\"warn_message\":\"Secondary drowning can occur hours later — hospital evaluation is mandatory.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "elderly man pulled from pool, unconscious, bystanders are doing CPR, we called 911"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Continue CPR — 30 compressions, 2 breaths.\",\"Use AED if available at pool.\",\"Rotate CPR providers every 2 minutes.\",\"Keep him warm with towels or clothing.\",\"Stay on line with 911 for guidance.\",\"Continue until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"drowning\",\"warn_message\":\"Continue CPR without stopping — drowning victims can recover.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "8 year old pulled from river, coughing and crying, seems okay but swallowed water, no kit"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 — all submersion incidents need evaluation.\",\"Keep him warm and calm.\",\"Have him sit upright.\",\"Do not give food or water yet.\",\"Watch for: coughing, difficulty breathing, confusion.\",\"Take to ER even if he seems fine — secondary drowning risk.\"],\"estimated_time_minutes\":0,\"condition\":\"drowning\",\"warn_message\":\"Secondary drowning can occur 1-24 hours after submersion — go to ER.\",\"next_question\":\"How long was he underwater?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "man rescued from ocean, conscious and coughing, lifeguard is here, seems okay"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 — all ocean submersion needs evaluation.\",\"Have him sit or lie down.\",\"Keep him warm — remove wet clothing.\",\"Monitor breathing closely.\",\"Do not leave him alone.\",\"Take to ER — secondary drowning and hypothermia are risks.\"],\"estimated_time_minutes\":0,\"condition\":\"drowning\",\"warn_message\":\"Secondary drowning risk — hospital evaluation required even if conscious.\",\"next_question\":\"How long was he in the water?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen pulled from pool, not breathing, coach is here and starting CPR, we called 911"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Continue CPR — 30 compressions, 2 breaths.\",\"Use AED if available at facility.\",\"Rotate CPR providers every 2 minutes.\",\"Keep her warm with towels.\",\"Stay on line with 911.\",\"Continue until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"drowning\",\"warn_message\":\"Continue CPR — drowning victims can survive with sustained resuscitation.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "मेरा बच्चा पूल में डूब गया, बाहर निकाला है, सांस नहीं ले रहा, मैं क्या करूं"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"112 पर तुरंत कॉल करें।\",\"बच्चे को सख्त जमीन पर पीठ के बल लिटाएं।\",\"सिर पीछे झुकाएं, ठुड्डी ऊपर उठाएं।\",\"2 छोटी सांसें दें — छाती उठनी चाहिए।\",\"CPR शुरू करें: 30 दबाव, 2 सांसें।\",\"जब तक एम्बुलेंस न आए, रुकें नहीं।\"],\"estimated_time_minutes\":0,\"condition\":\"drowning\",\"warn_message\":\"डूबने पर तुरंत CPR शुरू करें — हर सेकंड मायने रखता है।\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "elderly man collapsed outside in the heat, skin is hot and dry, not sweating, confused, bystanders here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Move him to shade or air conditioning immediately.\",\"Remove excess clothing.\",\"Cool him rapidly: wet cloths on neck, armpits, groin.\",\"Fan him vigorously.\",\"Give cool water only if he is conscious and can swallow.\",\"Do not give aspirin or acetaminophen.\"],\"estimated_time_minutes\":0,\"condition\":\"heat_stroke\",\"warn_message\":\"Hot dry skin with confusion is classic heat stroke — cool immediately.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "construction worker collapsed in the heat, not sweating, skin is red and hot, coworkers are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Move him to shade immediately.\",\"Remove hard hat and excess clothing.\",\"Apply ice packs to neck, armpits, and groin.\",\"Fan him with anything available.\",\"Give cool water if conscious and able to swallow.\",\"Continue cooling until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"heat_stroke\",\"warn_message\":\"Heat stroke — core temperature must be reduced immediately.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 7 year old is very hot, dizzy, and has a headache after playing outside in the sun, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"Move her to a cool indoor area or shade immediately.\",\"Remove excess clothing.\",\"Give cool water to drink in small sips.\",\"Apply cool wet cloths to forehead, neck, and armpits.\",\"Have her lie down with legs slightly elevated.\",\"Call 911 if she stops sweating, becomes confused, or loses consciousness.\"],\"estimated_time_minutes\":20,\"condition\":\"heat_stroke\",\"warn_message\":\"\",\"next_question\":\"Is she still sweating or is her skin hot and dry?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen athlete on the field is dizzy, nauseous, and very hot after practice, coach is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"Move him to shade or air conditioning immediately.\",\"Remove excess clothing and equipment.\",\"Give cool water or sports drink in small sips.\",\"Apply cool wet cloths to neck and armpits.\",\"Have him lie down.\",\"Call 911 if he stops sweating, becomes confused, or loses consciousness.\"],\"estimated_time_minutes\":20,\"condition\":\"heat_stroke\",\"warn_message\":\"\",\"next_question\":\"Is he still sweating or is his skin hot and dry?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "woman found in hot car, unresponsive, skin is burning hot, she was alone in the vehicle"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Get her out of the car into shade or AC.\",\"Remove excess clothing.\",\"Apply ice packs or cold wet cloths to neck, armpits, groin.\",\"Fan her vigorously.\",\"If unconscious, place in recovery position.\",\"Begin CPR if she stops breathing.\"],\"estimated_time_minutes\":0,\"condition\":\"heat_stroke\",\"warn_message\":\"Unresponsive in hot car — life-threatening heat stroke, cool immediately.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "elderly woman at home, no AC, very hot day, she's confused and her skin is dry and hot, she's alone"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Move her to the coolest room or open windows.\",\"Apply cool wet cloths to neck, armpits, and groin.\",\"Fan her with anything available.\",\"Give cool water if she can swallow safely.\",\"Do not leave her alone.\"],\"estimated_time_minutes\":0,\"condition\":\"heat_stroke\",\"warn_message\":\"Elderly without AC in heat wave — heat stroke risk is very high.\",\"next_question\":\"Is she still sweating or is her skin completely dry?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "marathon runner collapsed near the finish line, not responding well, medical tent is nearby"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 and alert medical tent immediately.\",\"Move him to medical tent or shade.\",\"Remove excess clothing.\",\"Immerse in ice water bath if available — most effective cooling.\",\"Apply ice packs to neck, armpits, groin if no ice bath.\",\"Give IV fluids if medical staff present.\",\"Continue cooling until core temp below 39°C.\"],\"estimated_time_minutes\":0,\"condition\":\"heat_stroke\",\"warn_message\":\"Exertional heat stroke — ice water immersion is the gold standard treatment.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 5 year old has been in the sun all day, now has a headache and feels sick, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"Move her indoors to a cool area immediately.\",\"Remove excess clothing.\",\"Give cool water to drink in small sips.\",\"Apply cool wet cloths to forehead and neck.\",\"Have her lie down and rest.\",\"Call 911 if she stops sweating, becomes confused, or vomits repeatedly.\"],\"estimated_time_minutes\":20,\"condition\":\"heat_stroke\",\"warn_message\":\"\",\"next_question\":\"Is she still sweating or is her skin hot and dry?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "woman hiking, feeling dizzy and nauseous in the heat, still sweating, bystanders are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Move her to shade immediately.\",\"Have her sit or lie down.\",\"Give cool water or electrolyte drink in small sips.\",\"Apply cool wet cloths to neck and forehead.\",\"Rest for at least 30 minutes before continuing.\",\"Call 911 if she stops sweating or becomes confused.\"],\"estimated_time_minutes\":30,\"condition\":\"heat_stroke\",\"warn_message\":\"\",\"next_question\":\"Is she still sweating? What is her approximate temperature?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Ayuda! Hombre mayor colapsó afuera en el calor, piel caliente y seca, confundido, estamos en la calle"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Llama al 911 inmediatamente.\",\"Muévelo a la sombra o a un lugar fresco.\",\"Quítale ropa extra.\",\"Aplica paños fríos en cuello, axilas e ingle.\",\"Abanicalo vigorosamente.\",\"Dale agua fresca si está consciente y puede tragar.\",\"Continúa enfriando hasta que llegue la ambulancia.\"],\"estimated_time_minutes\":0,\"condition\":\"heat_stroke\",\"warn_message\":\"Golpe de calor — enfriamiento inmediato es esencial.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teammate broke his arm during the game, bone might be sticking out, in a lot of pain, teammates are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":true,\"steps\":[\"Call 911 if bone is visible through skin — open fracture.\",\"Do not try to straighten or push bone back.\",\"Immobilize the arm in the position found.\",\"Cover open wound with clean cloth — do not press on bone.\",\"Apply ice pack wrapped in cloth to reduce swelling.\",\"Keep him still and calm.\",\"Take to ER immediately.\"],\"estimated_time_minutes\":15,\"condition\":\"fracture\",\"warn_message\":\"Open fracture — infection and blood vessel damage risk.\",\"next_question\":\"Is the bone visible through the skin?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 8 year old fell off the swing and her arm looks bent wrong, she's crying, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Keep her calm and still.\",\"Do not try to straighten the arm.\",\"Immobilize arm with a makeshift splint — rolled magazine or pillow.\",\"Apply ice pack wrapped in cloth to reduce swelling.\",\"Support arm in a sling made from a scarf or cloth.\",\"Take her to ER immediately.\"],\"estimated_time_minutes\":15,\"condition\":\"fracture\",\"warn_message\":\"\",\"next_question\":\"Is the skin broken or is there any bone visible?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "i fell at home and my wrist looks deformed, in a lot of pain, im 72 and alone"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"Call a family member or neighbor for help.\",\"Do not try to straighten the wrist.\",\"Immobilize wrist with a pillow or folded towel.\",\"Apply ice pack wrapped in cloth.\",\"Keep arm elevated.\",\"Go to ER — do not drive yourself.\"],\"estimated_time_minutes\":15,\"condition\":\"fracture\",\"warn_message\":\"Elderly wrist fracture — possible osteoporosis, needs X-ray.\",\"next_question\":\"Can you feel your fingers and are they a normal color?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen in car accident, leg looks deformed, in severe pain, bystanders are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Do not move her unless there is fire risk.\",\"Do not try to straighten the leg.\",\"Immobilize leg in position found with clothing or blankets.\",\"Apply gentle pressure if there is bleeding.\",\"Keep her warm and calm.\",\"Stay with her until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"fracture\",\"warn_message\":\"Femur fracture can cause significant internal bleeding.\",\"next_question\":\"Is there any bleeding from the leg?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "I twisted my ankle hiking and it's swollen and painful, I have a first aid kit, can still walk a little"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Stop walking and sit down.\",\"Apply ice pack wrapped in cloth for 20 minutes.\",\"Wrap ankle with elastic bandage from kit — not too tight.\",\"Elevate ankle above heart level.\",\"Rest — do not continue hiking.\",\"See a doctor to rule out fracture.\"],\"estimated_time_minutes\":20,\"condition\":\"fracture\",\"warn_message\":\"\",\"next_question\":\"Can you bear any weight on it at all?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my elderly husband fell and his hip looks wrong, he cant stand, spouse is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — hip fractures in elderly need EMS.\",\"Do not try to move him or help him stand.\",\"Keep him still and comfortable on the floor.\",\"Place a pillow under his head.\",\"Keep him warm with a blanket.\",\"Stay with him until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"fracture\",\"warn_message\":\"Hip fracture in elderly — do not move, risk of further injury.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 6 year old fell off his bike and his arm is swollen and he wont move it, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Keep him calm and still.\",\"Do not try to straighten or move the arm.\",\"Immobilize arm with a pillow or folded cloth.\",\"Apply ice pack wrapped in cloth.\",\"Support arm in a sling.\",\"Take him to ER for X-ray.\"],\"estimated_time_minutes\":15,\"condition\":\"fracture\",\"warn_message\":\"\",\"next_question\":\"Is the skin broken or is there any deformity visible?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "construction worker fell and has severe leg pain, cant bear weight, coworkers are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Have him sit or lie down.\",\"Do not try to straighten the leg.\",\"Immobilize leg with available materials.\",\"Apply ice pack wrapped in cloth.\",\"Watch for signs of shock: pale skin, rapid breathing.\",\"Keep him warm and calm.\"],\"estimated_time_minutes\":0,\"condition\":\"fracture\",\"warn_message\":\"Femur fracture can cause life-threatening blood loss.\",\"next_question\":\"Is there any visible deformity or swelling?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "I fell during my run and my ankle is very swollen and painful, trainer is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Stop all activity and sit down.\",\"Apply ice pack wrapped in cloth for 20 minutes.\",\"Elevate ankle above heart level.\",\"Wrap with elastic bandage if available.\",\"Do not bear weight on it.\",\"See a doctor for X-ray to rule out fracture.\"],\"estimated_time_minutes\":20,\"condition\":\"fracture\",\"warn_message\":\"\",\"next_question\":\"Can you move your toes and is there any numbness?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "मेरे पिताजी गिर गए, उनकी कलाई टेढ़ी हो गई है, बहुत दर्द है, मैं क्या करूं"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"उन्हें शांत रखें और बैठाएं।\",\"कलाई को सीधा करने की कोशिश न करें।\",\"तकिए या मुड़े कपड़े से कलाई को सहारा दें।\",\"बर्फ को कपड़े में लपेटकर लगाएं।\",\"हाथ को ऊपर उठाकर रखें।\",\"एक्स-रे के लिए अस्पताल ले जाएं।\"],\"estimated_time_minutes\":15,\"condition\":\"fracture\",\"warn_message\":\"\",\"next_question\":\"क्या उंगलियां सुन्न हैं या रंग बदल गया है?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "construction worker got metal shaving in his eye, cant open it, tearing up, coworkers are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":false,\"steps\":[\"Tell him not to rub the eye.\",\"Flush eye with clean water or saline for 15-20 minutes.\",\"Have him blink repeatedly while flushing.\",\"Do not try to remove embedded object.\",\"Cover eye loosely with clean cloth — do not press.\",\"Take to ER or eye specialist immediately.\"],\"estimated_time_minutes\":20,\"condition\":\"eye_injury\",\"warn_message\":\"Metal in eye — do not rub, seek ophthalmology care urgently.\",\"next_question\":\"Is the object still in the eye or did it flush out?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 8 year old got poked in the eye with a stick, crying, eye is red and watering, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Tell him not to rub the eye.\",\"Rinse eye gently with clean water.\",\"Cover eye loosely with clean cloth.\",\"Do not press on the eye.\",\"Take to ER or eye doctor for evaluation.\",\"Call 911 if he cannot open the eye or vision is affected.\"],\"estimated_time_minutes\":15,\"condition\":\"eye_injury\",\"warn_message\":\"\",\"next_question\":\"Can he open the eye and does he have normal vision in it?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "chemical splashed in my eye in the lab, burning badly, safety officer is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Flush eye immediately with water for at least 20 minutes.\",\"Use eyewash station if available.\",\"Remove contact lens if wearing one.\",\"Do not rub the eye.\",\"Keep flushing — do not stop early.\",\"Identify the chemical for EMS.\",\"Go to ER immediately after flushing.\"],\"estimated_time_minutes\":20,\"condition\":\"eye_injury\",\"warn_message\":\"Chemical eye injury — flush immediately and continuously for 20 minutes.\",\"next_question\":\"What chemical splashed in your eye?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen got hit in the eye with a ball during sports, eye is swollen and painful, coach is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Have him sit down and rest.\",\"Apply ice pack wrapped in cloth gently around eye — not on eyeball.\",\"Tell him not to rub the eye.\",\"Do not press on the eye.\",\"Take to ER if vision is blurred or eye is very swollen.\",\"Call 911 if he cannot see or eye looks deformed.\"],\"estimated_time_minutes\":20,\"condition\":\"eye_injury\",\"warn_message\":\"\",\"next_question\":\"Is his vision normal in that eye?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "i got something in my eye at home, it's irritating but i can still see, im alone and elderly"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Do not rub the eye.\",\"Blink rapidly — tears may flush the object out.\",\"Rinse eye with clean water or saline.\",\"Pull upper eyelid over lower to help dislodge object.\",\"If object remains, cover eye and see a doctor.\",\"Call for help if you cannot manage alone.\"],\"estimated_time_minutes\":15,\"condition\":\"eye_injury\",\"warn_message\":\"\",\"next_question\":\"Can you see clearly and is the object still in the eye?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "got dust in my eye while working outside, its irritating and watering, bystanders are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Do not rub the eye.\",\"Blink rapidly to try to flush out the dust.\",\"Rinse eye with clean water for several minutes.\",\"If irritation persists, see a doctor.\",\"Avoid further dust exposure.\"],\"estimated_time_minutes\":10,\"condition\":\"eye_injury\",\"warn_message\":\"\",\"next_question\":\"Is your vision clear and is the irritation improving?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 6 year old got sand in her eye at the playground, rubbing it, crying, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Tell her to stop rubbing the eye.\",\"Rinse eye gently with clean water.\",\"Have her blink while rinsing.\",\"If sand is still there, cover eye and see a doctor.\",\"Do not try to remove particles with fingers.\"],\"estimated_time_minutes\":10,\"condition\":\"eye_injury\",\"warn_message\":\"\",\"next_question\":\"Is the eye still irritated after rinsing?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "i splashed hot oil in my eye while cooking, it burns, im alone at home"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Flush eye immediately with cool running water for 15-20 minutes.\",\"Do not rub the eye.\",\"Remove contact lens if wearing one.\",\"Call someone to take you to ER.\",\"Cover eye loosely with clean cloth after flushing.\",\"Call 911 if pain is severe or vision is affected.\"],\"estimated_time_minutes\":20,\"condition\":\"eye_injury\",\"warn_message\":\"\",\"next_question\":\"Is your vision affected in that eye?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen got hit by a firework near his eye, eye is bleeding, bystanders are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Do NOT rub or press on the eye.\",\"Do not try to remove any object.\",\"Cover eye loosely with clean cloth — no pressure.\",\"Keep him still and calm.\",\"Do not give food or water.\",\"Take to ER immediately.\"],\"estimated_time_minutes\":0,\"condition\":\"eye_injury\",\"warn_message\":\"Penetrating eye injury — do not press, seek emergency ophthalmology care.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Ayuda! Me cayó químico en el ojo en el trabajo, me arde mucho, tengo oficial de seguridad aquí"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Lava el ojo con agua abundante por 20 minutos mínimo.\",\"Usa la estación de lavado de ojos si está disponible.\",\"Retira los lentes de contacto si los usas.\",\"No te frotes el ojo.\",\"Identifica el químico para el personal médico.\",\"Ve a urgencias inmediatamente después de lavar.\"],\"estimated_time_minutes\":20,\"condition\":\"eye_injury\",\"warn_message\":\"Quemadura química en ojo — lavar inmediatamente es crítico.\",\"next_question\":\"¿Qué químico te cayó en el ojo?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 7 year old has a nosebleed, it's been going for a few minutes, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"low\",\"call_ambulance\":false,\"steps\":[\"Have her sit upright and lean slightly forward.\",\"Pinch the soft part of the nose firmly.\",\"Hold for 10-15 minutes without releasing.\",\"Breathe through the mouth.\",\"Do not tilt head back — blood can go to stomach.\",\"Apply cold compress to bridge of nose.\"],\"estimated_time_minutes\":15,\"condition\":\"nosebleed\",\"warn_message\":\"\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "got a nosebleed at the office, been going for 5 minutes, im alone at my desk"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"low\",\"call_ambulance\":false,\"steps\":[\"Sit upright and lean slightly forward.\",\"Pinch the soft part of your nose firmly.\",\"Hold for 10-15 minutes without releasing.\",\"Breathe through your mouth.\",\"Do not tilt head back.\",\"Apply cold compress to bridge of nose if available.\"],\"estimated_time_minutes\":15,\"condition\":\"nosebleed\",\"warn_message\":\"\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "i'm an elderly woman, my nose has been bleeding for 20 minutes and won't stop, i'm alone at home"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Sit upright and lean slightly forward.\",\"Pinch soft part of nose firmly for 15 minutes.\",\"Do not tilt head back.\",\"Apply cold compress to bridge of nose.\",\"Call a family member or neighbor.\",\"Go to ER if bleeding doesn't stop after 30 minutes total.\"],\"estimated_time_minutes\":15,\"condition\":\"nosebleed\",\"warn_message\":\"Prolonged nosebleed in elderly — blood thinners may be a factor.\",\"next_question\":\"Are you on blood thinners or aspirin?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen got hit in the nose during sports, nosebleed started, coach is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"low\",\"call_ambulance\":false,\"steps\":[\"Have him sit upright and lean slightly forward.\",\"Pinch soft part of nose firmly.\",\"Hold for 10-15 minutes.\",\"Apply ice pack to bridge of nose.\",\"Check for nose deformity — may need X-ray.\",\"Do not return to play until bleeding stops.\"],\"estimated_time_minutes\":15,\"condition\":\"nosebleed\",\"warn_message\":\"\",\"next_question\":\"Does the nose look deformed or crooked?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "I have a nosebleed, it just started, not too bad, I'm at home alone"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"low\",\"call_ambulance\":false,\"steps\":[\"Sit upright and lean slightly forward.\",\"Pinch the soft part of your nose firmly.\",\"Hold for 10-15 minutes without releasing.\",\"Breathe through your mouth.\",\"Do not tilt head back.\",\"Apply cold compress to bridge of nose.\"],\"estimated_time_minutes\":15,\"condition\":\"nosebleed\",\"warn_message\":\"\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "5 year old student has a nosebleed at school, teacher is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"low\",\"call_ambulance\":false,\"steps\":[\"Have child sit upright and lean slightly forward.\",\"Pinch soft part of nose firmly.\",\"Hold for 10 minutes without releasing.\",\"Breathe through the mouth.\",\"Do not tilt head back.\",\"Call parents to inform them.\"],\"estimated_time_minutes\":10,\"condition\":\"nosebleed\",\"warn_message\":\"\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my elderly husband has a nosebleed that won't stop, been 25 minutes, he's on warfarin, spouse is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":true,\"steps\":[\"Call 911 — warfarin increases bleeding risk significantly.\",\"Have him sit upright and lean forward.\",\"Pinch soft part of nose firmly.\",\"Apply cold compress to bridge of nose.\",\"Do not tilt head back.\",\"Bring his medication list for EMS.\"],\"estimated_time_minutes\":0,\"condition\":\"nosebleed\",\"warn_message\":\"Warfarin patient with prolonged nosebleed needs emergency evaluation.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "got a nosebleed while hiking, been going a few minutes, bystanders are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"low\",\"call_ambulance\":false,\"steps\":[\"Sit down and lean slightly forward.\",\"Pinch soft part of nose firmly.\",\"Hold for 10-15 minutes.\",\"Breathe through your mouth.\",\"Apply cold compress if available.\",\"Rest before continuing the hike.\"],\"estimated_time_minutes\":15,\"condition\":\"nosebleed\",\"warn_message\":\"\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "I have a nosebleed while driving, pulled over, it's not too bad, alone in the car"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"low\",\"call_ambulance\":false,\"steps\":[\"Stay parked — do not drive with a nosebleed.\",\"Sit upright and lean slightly forward.\",\"Pinch soft part of nose firmly.\",\"Hold for 10-15 minutes.\",\"Do not tilt head back.\",\"Resume driving only after bleeding stops completely.\"],\"estimated_time_minutes\":15,\"condition\":\"nosebleed\",\"warn_message\":\"\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "मेरे बच्चे की नाक से खून आ रहा है, 8 साल का है, रुक नहीं रहा, मैं क्या करूं"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"low\",\"call_ambulance\":false,\"steps\":[\"बच्चे को सीधा बैठाएं और थोड़ा आगे झुकाएं।\",\"नाक के नरम हिस्से को मजबूती से दबाएं।\",\"10-15 मिनट तक बिना छोड़े दबाए रखें।\",\"मुंह से सांस लेने दें।\",\"सिर पीछे न झुकाएं।\",\"नाक की जड़ पर ठंडा कपड़ा रखें।\"],\"estimated_time_minutes\":15,\"condition\":\"nosebleed\",\"warn_message\":\"\",\"next_question\":\"क्या 15 मिनट बाद भी खून बंद नहीं हुआ?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my husband touched a live wire at home, he got shocked and fell, he's conscious but shaking, spouse is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Do NOT touch him until power is off.\",\"Turn off the main power switch or circuit breaker.\",\"Once power is off, check if he is breathing.\",\"If not breathing, begin CPR.\",\"Do not move him if spinal injury is possible.\",\"All electric shock victims need hospital evaluation.\"],\"estimated_time_minutes\":0,\"condition\":\"electric_shock\",\"warn_message\":\"Do not touch victim until power is confirmed off — you could be electrocuted.\",\"next_question\":\"Is the power source turned off?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 8 year old stuck something in an outlet and got shocked, she's crying but seems okay, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 — all child electric shock needs evaluation.\",\"Ensure power is off before touching her.\",\"Check for burns at entry and exit points.\",\"Keep her calm and still.\",\"Do not give food or water.\",\"Take to ER even if she seems fine — internal injuries possible.\"],\"estimated_time_minutes\":0,\"condition\":\"electric_shock\",\"warn_message\":\"Electric shock in children — internal injuries may not be visible.\",\"next_question\":\"Are there any burn marks on her hands or feet?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "coworker got shocked by office equipment, she's conscious but her hand is burned, coworkers are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Ensure power source is off.\",\"Do not touch her until power is confirmed off.\",\"Check for burns at contact points.\",\"Keep her still and calm.\",\"Do not give food or water.\",\"All electric shock victims need cardiac monitoring.\"],\"estimated_time_minutes\":0,\"condition\":\"electric_shock\",\"warn_message\":\"Electric shock can cause cardiac arrhythmia — hospital monitoring required.\",\"next_question\":\"Is she having any chest pain or irregular heartbeat?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen got struck by lightning outside, unconscious, bystanders are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Lightning strike victims are safe to touch — no residual charge.\",\"Check for breathing and pulse.\",\"If not breathing, begin CPR immediately.\",\"Check for burns at entry and exit points.\",\"Keep him warm and still.\",\"Continue CPR until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"electric_shock\",\"warn_message\":\"Lightning strike — begin CPR immediately, victims are safe to touch.\",\"next_question\":\"Is he breathing?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "construction worker grabbed a live wire, he's on the ground, coworkers are here, power still on"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Do NOT touch him — power is still on.\",\"Turn off power at the main breaker immediately.\",\"Use a dry wooden stick to push wire away if power cannot be turned off.\",\"Once power is off, check breathing and pulse.\",\"Begin CPR if not breathing.\",\"All high-voltage shock victims need immediate hospital care.\"],\"estimated_time_minutes\":0,\"condition\":\"electric_shock\",\"warn_message\":\"Do not approach until power is off — risk of electrocution.\",\"next_question\":\"Has the power been turned off yet?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "elderly man got shocked by a faulty appliance at home, he's conscious but dizzy, he's alone and called me"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Tell him to unplug the appliance if safe to do so.\",\"Tell him to sit down and not move.\",\"Stay on the phone with him.\",\"All electric shock victims need cardiac monitoring.\",\"Go to him after 911 is called.\"],\"estimated_time_minutes\":0,\"condition\":\"electric_shock\",\"warn_message\":\"Electric shock can cause delayed cardiac arrhythmia — needs monitoring.\",\"next_question\":\"Is he having any chest pain or palpitations?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "I got a small shock from my kitchen appliance, my hand tingles a bit, I'm alone at home"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Unplug the appliance immediately.\",\"Sit down and rest.\",\"Check your hand for any burns.\",\"If tingling persists more than a few minutes, call 911.\",\"See a doctor today — even minor shocks can cause arrhythmia.\",\"Do not use the appliance until it is repaired.\"],\"estimated_time_minutes\":15,\"condition\":\"electric_shock\",\"warn_message\":\"\",\"next_question\":\"Do you have any chest pain, palpitations, or difficulty breathing?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 6 year old touched a lamp wire and got a small shock, she cried but seems okay now, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 or take to ER — all child electric shock needs evaluation.\",\"Ensure power is off.\",\"Check for any burns on her hands.\",\"Keep her calm and still.\",\"Do not give food or water.\",\"Even if she seems fine, internal injuries are possible.\"],\"estimated_time_minutes\":0,\"condition\":\"electric_shock\",\"warn_message\":\"Child electric shock — always requires medical evaluation.\",\"next_question\":\"Are there any burn marks on her hands?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "industrial worker got high voltage shock, unconscious, safety officer is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Do NOT touch victim until power is confirmed off.\",\"Turn off power at main breaker — safety officer to act.\",\"Once power off, check breathing and pulse.\",\"Begin CPR if not breathing.\",\"Check for entry and exit burn wounds.\",\"Continue CPR until EMS arrives.\"],\"estimated_time_minutes\":0,\"condition\":\"electric_shock\",\"warn_message\":\"High voltage shock — severe internal injuries likely, do not delay CPR.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "بجلی کا جھٹکا لگا ہے، آدمی بے ہوش ہے، ابھی بھی تار سے لگا ہوا ہے، ہم باہر ہیں"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"ابھی 115 پر کال کریں۔\",\"اسے ہاتھ نہ لگائیں — بجلی ابھی بھی خطرناک ہے۔\",\"بجلی کا مین سوئچ بند کریں۔\",\"خشک لکڑی سے تار کو دور کریں اگر بجلی بند نہ ہو سکے۔\",\"بجلی بند ہونے کے بعد سانس اور نبض چیک کریں۔\",\"سانس نہ ہو تو CPR شروع کریں۔\"],\"estimated_time_minutes\":0,\"condition\":\"electric_shock\",\"warn_message\":\"بجلی بند ہونے سے پہلے ہاتھ نہ لگائیں — آپ کو بھی جھٹکا لگ سکتا ہے۔\",\"next_question\":\"کیا بجلی بند ہو گئی ہے؟\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "i was hiking alone and a snake bit my ankle, im not sure if it was venomous, im about 2 hours from the trailhead"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 or emergency services immediately.\",\"Keep calm and still — movement spreads venom faster.\",\"Immobilize the bitten limb below heart level.\",\"Remove rings, watches, tight clothing near bite.\",\"Do NOT cut, suck, or apply tourniquet to bite.\",\"Do NOT apply ice.\",\"Note snake appearance if safe — do not try to catch it.\"],\"estimated_time_minutes\":0,\"condition\":\"snakebite\",\"warn_message\":\"Treat all snakebites as potentially venomous until proven otherwise.\",\"next_question\":\"Can you describe the snake? Are you developing swelling or numbness?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 8 year old was bitten by a snake in the garden, she's crying, two puncture marks on her hand, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Keep her calm and still.\",\"Immobilize her hand below heart level.\",\"Remove rings or bracelets near the bite.\",\"Do NOT cut, suck, or apply tourniquet.\",\"Do NOT apply ice.\",\"Note snake description if possible.\"],\"estimated_time_minutes\":0,\"condition\":\"snakebite\",\"warn_message\":\"Child snakebite — venom effects are more severe in smaller bodies.\",\"next_question\":\"Is swelling spreading up the arm? Can you describe the snake?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "woman bitten by a snake while hiking, arm is swelling, bystanders are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Keep her calm and still.\",\"Immobilize bitten arm below heart level.\",\"Remove jewelry near the bite.\",\"Do NOT cut, suck, or apply tourniquet.\",\"Do NOT apply ice.\",\"Mark the edge of swelling with a pen and note the time.\"],\"estimated_time_minutes\":0,\"condition\":\"snakebite\",\"warn_message\":\"Spreading swelling indicates envenomation — antivenom needed urgently.\",\"next_question\":\"Can you describe the snake? Is she having difficulty breathing?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my husband was bitten by a snake in the garden, his hand is swelling, spouse is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Keep him calm and seated.\",\"Immobilize his hand below heart level.\",\"Remove rings and watch.\",\"Do NOT cut, suck, or apply tourniquet.\",\"Do NOT apply ice.\",\"Take a photo of the snake if safe — do not approach it.\"],\"estimated_time_minutes\":0,\"condition\":\"snakebite\",\"warn_message\":\"Swelling after snakebite indicates envenomation — antivenom may be needed.\",\"next_question\":\"Can you describe or photograph the snake?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen got bitten by a snake while camping, friends are here, bite is on the leg"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Keep him calm and lying down.\",\"Immobilize bitten leg below heart level.\",\"Remove shoes and socks near bite.\",\"Do NOT cut, suck, or apply tourniquet.\",\"Do NOT apply ice.\",\"Mark swelling edge with pen and note time.\"],\"estimated_time_minutes\":0,\"condition\":\"snakebite\",\"warn_message\":\"All snakebites in wilderness require emergency evacuation.\",\"next_question\":\"Is he developing nausea, dizziness, or difficulty breathing?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "SNAKE BIT ME IN THE WOODS IM ALONE CANT WALK WELL SWELLING FAST WHAT DO I DO"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — give your GPS location if possible.\",\"Sit down and stay as still as possible.\",\"Keep bitten limb below heart level.\",\"Remove tight clothing and jewelry near bite.\",\"Do NOT cut, suck, or apply tourniquet.\",\"Do NOT try to walk out — movement spreads venom.\",\"Stay on line with 911.\"],\"estimated_time_minutes\":0,\"condition\":\"snakebite\",\"warn_message\":\"Rapid swelling alone in remote area — stay still, call for rescue.\",\"next_question\":\"What is your location? Are you having difficulty breathing?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 6 year old was bitten by a snake in the backyard, she's scared, parent is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Keep her calm and still.\",\"Immobilize bitten limb below heart level.\",\"Remove any jewelry near the bite.\",\"Do NOT cut, suck, or apply tourniquet.\",\"Do NOT apply ice.\",\"Note snake description for EMS.\"],\"estimated_time_minutes\":0,\"condition\":\"snakebite\",\"warn_message\":\"Child snakebite — always treat as emergency regardless of snake type.\",\"next_question\":\"Is swelling developing? Can you describe the snake?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "I was bitten by a small snake in my garden, it doesn't look too bad, I'm alone at home"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":true,\"steps\":[\"Call 911 or poison control immediately.\",\"Keep calm and sit down.\",\"Immobilize bitten limb below heart level.\",\"Remove jewelry near the bite.\",\"Do NOT cut, suck, or apply tourniquet.\",\"Do NOT apply ice.\",\"Monitor for swelling, numbness, nausea, or difficulty breathing.\"],\"estimated_time_minutes\":0,\"condition\":\"snakebite\",\"warn_message\":\"Even small snakes can be venomous — seek medical evaluation immediately.\",\"next_question\":\"Can you describe the snake's color and pattern?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "teen bitten by a snake outdoors, no kit, friends are here, bite on the arm"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Keep her calm and still.\",\"Immobilize bitten arm below heart level.\",\"Remove jewelry near the bite.\",\"Do NOT cut, suck, or apply tourniquet.\",\"Do NOT apply ice.\",\"Mark swelling edge with pen and note time.\"],\"estimated_time_minutes\":0,\"condition\":\"snakebite\",\"warn_message\":\"All snakebites require emergency evaluation — do not wait for symptoms.\",\"next_question\":\"Can you describe the snake? Is swelling spreading?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "सांप ने काट लिया है, बाहर जंगल में हूं, पैर में सूजन आ रही है, अकेला हूं"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"112 पर तुरंत कॉल करें — अपनी लोकेशन बताएं।\",\"बिल्कुल शांत रहें और हिलें नहीं।\",\"काटे हुए पैर को दिल से नीचे रखें।\",\"पास की अंगूठी या कपड़े हटाएं।\",\"काटें नहीं, चूसें नहीं, टूर्निकेट न लगाएं।\",\"बर्फ न लगाएं।\",\"911 से जुड़े रहें।\"],\"estimated_time_minutes\":0,\"condition\":\"snakebite\",\"warn_message\":\"तेजी से सूजन — जहर फैल रहा है, हिलें नहीं।\",\"next_question\":\"सांप कैसा दिखता था? क्या सांस लेने में तकलीफ है?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "50 year old man in our office has severe chest pain, sweating, left arm pain, looks terrible"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Have him sit or lie down in a comfortable position.\",\"Loosen tight clothing.\",\"Give 325mg aspirin to chew if not allergic and no contraindications.\",\"Do not let him walk or exert himself.\",\"Stay with him and keep him calm.\",\"Use AED if he loses consciousness and has no pulse.\"],\"estimated_time_minutes\":0,\"condition\":\"chest_pain\",\"warn_message\":\"Classic heart attack symptoms — every minute of delay causes more heart damage.\",\"next_question\":\"Is he allergic to aspirin?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "im 70 years old, i have chest pain and my left arm hurts, im alone at home, what do i do"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — do not drive yourself.\",\"Sit or lie down in a comfortable position.\",\"Unlock your front door for paramedics.\",\"Chew one aspirin (325mg) if not allergic.\",\"Stay on the phone with 911.\",\"Do not eat or drink anything else.\"],\"estimated_time_minutes\":0,\"condition\":\"chest_pain\",\"warn_message\":\"Possible heart attack — call 911 immediately, do not wait.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "45 year old man at the gym has chest tightness and shortness of breath after working out, trainer is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Stop all exercise immediately.\",\"Have him sit down and rest.\",\"Loosen tight clothing.\",\"Give aspirin to chew if available and not allergic.\",\"Do not leave him alone.\",\"Use AED if he loses consciousness.\"],\"estimated_time_minutes\":0,\"condition\":\"chest_pain\",\"warn_message\":\"Chest pain after exertion in middle-aged male — possible cardiac event.\",\"next_question\":\"Does he have a history of heart disease?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "16 year old athlete has chest pain after running, says it's sharp and gets worse when breathing, coach is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"moderate\",\"call_ambulance\":false,\"steps\":[\"Have him stop all activity and sit down.\",\"Sharp pain worsening with breathing may be musculoskeletal or pleuritic.\",\"Have him breathe slowly and calmly.\",\"Do not give aspirin to teens without medical advice.\",\"Take him to ER for evaluation.\",\"Call 911 if pain worsens or he has difficulty breathing.\"],\"estimated_time_minutes\":20,\"condition\":\"chest_pain\",\"warn_message\":\"\",\"next_question\":\"Does the pain radiate to his arm or jaw? Does he have any heart conditions?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my wife 55 has chest pressure and feels nauseous, she's pale, spouse is here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — women often have atypical heart attack symptoms.\",\"Have her sit or lie down comfortably.\",\"Loosen tight clothing.\",\"Give aspirin to chew if not allergic.\",\"Do not let her drive or walk around.\",\"Stay with her and keep her calm.\"],\"estimated_time_minutes\":0,\"condition\":\"chest_pain\",\"warn_message\":\"Women's heart attack symptoms include nausea and pressure — do not dismiss.\",\"next_question\":\"Does she have a history of heart disease or diabetes?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "elderly man 75 collapsed outside clutching his chest, bystanders are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Have him lie down comfortably.\",\"Loosen tight clothing.\",\"Give aspirin to chew if conscious and not allergic.\",\"Check for breathing and pulse.\",\"If no pulse, begin CPR immediately.\",\"Use AED if available.\"],\"estimated_time_minutes\":0,\"condition\":\"chest_pain\",\"warn_message\":\"Elderly chest pain with collapse — possible cardiac arrest imminent.\",\"next_question\":\"Is he conscious and breathing?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "im driving alone, 40 years old, having severe chest pain and left arm pain, pulled over"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately — stay in the car.\",\"Put hazard lights on.\",\"Sit back and rest — do not exert yourself.\",\"Chew one aspirin if available and not allergic.\",\"Unlock car doors for paramedics.\",\"Stay on line with 911.\"],\"estimated_time_minutes\":0,\"condition\":\"chest_pain\",\"warn_message\":\"Do not drive — call 911 immediately.\",\"next_question\":\"\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "woman 48 at our restaurant has chest pain and shortness of breath, staff are here"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Have her sit down and rest.\",\"Loosen tight clothing.\",\"Give aspirin to chew if available and not allergic.\",\"Do not leave her alone.\",\"Clear area and keep other customers back.\"],\"estimated_time_minutes\":0,\"condition\":\"chest_pain\",\"warn_message\":\"Chest pain with shortness of breath — possible cardiac event.\",\"next_question\":\"Does she have a history of heart disease?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "my 65 year old mother has chest pain and feels dizzy, caregiver is with her"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"high\",\"call_ambulance\":true,\"steps\":[\"Call 911 immediately.\",\"Have her sit or lie down comfortably.\",\"Loosen tight clothing.\",\"Give aspirin to chew if not allergic.\",\"Do not leave her alone.\",\"Bring her medication list for EMS.\"],\"estimated_time_minutes\":0,\"condition\":\"chest_pain\",\"warn_message\":\"Chest pain with dizziness in elderly — possible cardiac event.\",\"next_question\":\"Is she on any heart medications?\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Ayuda! Anciano de 72 años tiene dolor en el pecho y el brazo izquierdo, está sudando mucho, estamos en casa"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"severity\":\"critical\",\"call_ambulance\":true,\"steps\":[\"Llama al 911 inmediatamente.\",\"Siéntalo o acuéstalo cómodamente.\",\"Afloja ropa ajustada.\",\"Dale una aspirina de 325mg para masticar si no es alérgico.\",\"No lo dejes caminar ni hacer esfuerzo.\",\"Quédate con él y mantenlo tranquilo.\"],\"estimated_time_minutes\":0,\"condition\":\"chest_pain\",\"warn_message\":\"Posible infarto — cada minuto sin tratamiento daña más el corazón.\",\"next_question\":\"¿Es alérgico a la aspirina?\"}"
+      }
+    ]
+  }
+]

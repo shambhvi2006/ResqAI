@@ -1,0 +1,322 @@
+{
+  "choking_adult": {
+    "severity": "critical",
+    "call_ambulance": true,
+    "steps": [
+      "Ask if they can cough.",
+      "Call emergency services now.",
+      "Give five back blows.",
+      "Give five abdominal thrusts.",
+      "Repeat until object clears.",
+      "Start CPR if unconscious."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "choking_adult",
+    "warn_message": "Choking can block breathing completely, so act immediately and call emergency services.",
+    "next_question": ""
+  },
+  "cardiac_arrest": {
+    "severity": "critical",
+    "call_ambulance": true,
+    "steps": [
+      "Call emergency services now.",
+      "Place them flat.",
+      "Start hard chest compressions.",
+      "Push 100 to 120 per minute.",
+      "Use an AED if available.",
+      "Continue until help arrives."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "cardiac_arrest",
+    "warn_message": "Cardiac arrest is immediately life-threatening and needs CPR and emergency help now.",
+    "next_question": ""
+  },
+  "severe_bleeding": {
+    "severity": "critical",
+    "call_ambulance": true,
+    "steps": [
+      "Call emergency services now.",
+      "Press firmly on bleeding.",
+      "Use clean cloth or gauze.",
+      "Keep pressure constant.",
+      "Raise limb if possible.",
+      "Apply tourniquet for spurting limb bleeding."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "severe_bleeding",
+    "warn_message": "Severe bleeding can become fatal within minutes without firm direct pressure.",
+    "next_question": ""
+  },
+  "burn_second_degree": {
+    "severity": "serious",
+    "call_ambulance": false,
+    "steps": [
+      "Cool burn under running water.",
+      "Remove tight items nearby.",
+      "Cover with clean dressing.",
+      "Do not burst blisters.",
+      "Avoid ice or butter.",
+      "Seek urgent care for large burns."
+    ],
+    "estimated_time_minutes": 60,
+    "condition": "burn_second_degree",
+    "warn_message": "",
+    "next_question": ""
+  },
+  "anaphylaxis": {
+    "severity": "critical",
+    "call_ambulance": true,
+    "steps": [
+      "Call emergency services now.",
+      "Use epinephrine auto-injector.",
+      "Lay them flat.",
+      "Raise legs if tolerated.",
+      "Give second dose if worsening.",
+      "Start CPR if unresponsive."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "anaphylaxis",
+    "warn_message": "Anaphylaxis can close the airway quickly and requires epinephrine and emergency care.",
+    "next_question": ""
+  },
+  "seizure": {
+    "severity": "serious",
+    "call_ambulance": false,
+    "steps": [
+      "Protect head from injury.",
+      "Move hazards away.",
+      "Do not restrain them.",
+      "Do not put anything in mouth.",
+      "Time the seizure.",
+      "Place on side after shaking."
+    ],
+    "estimated_time_minutes": 5,
+    "condition": "seizure",
+    "warn_message": "",
+    "next_question": "Has the seizure lasted more than five minutes?"
+  },
+  "stroke": {
+    "severity": "critical",
+    "call_ambulance": true,
+    "steps": [
+      "Call emergency services now.",
+      "Note symptom start time.",
+      "Keep them sitting still.",
+      "Do not give food.",
+      "Check breathing and consciousness.",
+      "Prepare medication list."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "stroke",
+    "warn_message": "Stroke treatment is time-critical, so call emergency services immediately.",
+    "next_question": ""
+  },
+  "diabetic_emergency": {
+    "severity": "serious",
+    "call_ambulance": false,
+    "steps": [
+      "Check blood sugar if possible.",
+      "Give sugar if awake.",
+      "Use glucose gel if available.",
+      "Do not give insulin.",
+      "Call help if confused.",
+      "Monitor breathing closely."
+    ],
+    "estimated_time_minutes": 15,
+    "condition": "diabetic_emergency",
+    "warn_message": "",
+    "next_question": "Are they awake and able to swallow?"
+  },
+  "poisoning": {
+    "severity": "serious",
+    "call_ambulance": true,
+    "steps": [
+      "Call poison control now.",
+      "Call emergency services if severe.",
+      "Move them from danger.",
+      "Do not induce vomiting.",
+      "Save container or label.",
+      "Rinse exposed skin."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "poisoning",
+    "warn_message": "",
+    "next_question": "What substance and amount were involved?"
+  },
+  "head_injury": {
+    "severity": "serious",
+    "call_ambulance": false,
+    "steps": [
+      "Keep them still.",
+      "Check consciousness and breathing.",
+      "Apply cold pack gently.",
+      "Control bleeding with pressure.",
+      "Do not give alcohol.",
+      "Watch for vomiting or confusion."
+    ],
+    "estimated_time_minutes": 30,
+    "condition": "head_injury",
+    "warn_message": "",
+    "next_question": "Did they lose consciousness or vomit?"
+  },
+  "heat_stroke": {
+    "severity": "critical",
+    "call_ambulance": true,
+    "steps": [
+      "Call emergency services now.",
+      "Move to shade immediately.",
+      "Remove excess clothing.",
+      "Cool with water continuously.",
+      "Fan the person.",
+      "Give sips only if alert."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "heat_stroke",
+    "warn_message": "Heat stroke can rapidly damage organs and needs immediate cooling and emergency care.",
+    "next_question": ""
+  },
+  "fracture": {
+    "severity": "serious",
+    "call_ambulance": false,
+    "steps": [
+      "Keep injured part still.",
+      "Support with padding.",
+      "Apply cold pack wrapped.",
+      "Do not straighten deformity.",
+      "Check circulation below injury.",
+      "Seek urgent medical care."
+    ],
+    "estimated_time_minutes": 60,
+    "condition": "fracture",
+    "warn_message": "",
+    "next_question": ""
+  },
+  "nosebleed": {
+    "severity": "minor",
+    "call_ambulance": false,
+    "steps": [
+      "Sit upright.",
+      "Lean slightly forward.",
+      "Pinch soft nose firmly.",
+      "Hold pressure ten minutes.",
+      "Avoid blowing nose.",
+      "Repeat once if needed."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "nosebleed",
+    "warn_message": "",
+    "next_question": ""
+  },
+  "drowning": {
+    "severity": "critical",
+    "call_ambulance": true,
+    "steps": [
+      "Call emergency services now.",
+      "Remove from water safely.",
+      "Check breathing immediately.",
+      "Start CPR if not breathing.",
+      "Use AED if available.",
+      "Keep them warm."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "drowning",
+    "warn_message": "Drowning can stop breathing and worsen after rescue, so call emergency services immediately.",
+    "next_question": ""
+  },
+  "chest_pain": {
+    "severity": "critical",
+    "call_ambulance": true,
+    "steps": [
+      "Call emergency services now.",
+      "Rest in comfortable position.",
+      "Loosen tight clothing.",
+      "Give aspirin if not allergic.",
+      "Do not let them walk.",
+      "Start CPR if unresponsive."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "chest_pain",
+    "warn_message": "Chest pain may be a heart attack and needs emergency assessment immediately.",
+    "next_question": ""
+  },
+  "eye_injury": {
+    "severity": "serious",
+    "call_ambulance": false,
+    "steps": [
+      "Do not rub eye.",
+      "Rinse chemicals with water.",
+      "Cover both eyes loosely.",
+      "Do not remove embedded objects.",
+      "Keep pressure off eye.",
+      "Seek urgent eye care."
+    ],
+    "estimated_time_minutes": 30,
+    "condition": "eye_injury",
+    "warn_message": "",
+    "next_question": "Was this chemical exposure or a penetrating injury?"
+  },
+  "electric_shock": {
+    "severity": "critical",
+    "call_ambulance": true,
+    "steps": [
+      "Turn off power first.",
+      "Do not touch until safe.",
+      "Call emergency services now.",
+      "Check breathing and pulse.",
+      "Start CPR if needed.",
+      "Cover burns with dressing."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "electric_shock",
+    "warn_message": "Electric shock can cause hidden heart rhythm problems and needs emergency care.",
+    "next_question": ""
+  },
+  "snakebite": {
+    "severity": "critical",
+    "call_ambulance": true,
+    "steps": [
+      "Call emergency services now.",
+      "Keep person still.",
+      "Remove rings and tight items.",
+      "Keep bite below heart.",
+      "Cover bite loosely.",
+      "Do not cut or suck."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "snakebite",
+    "warn_message": "Snakebite can become life-threatening and needs urgent antivenom assessment.",
+    "next_question": ""
+  },
+  "hypothermia": {
+    "severity": "serious",
+    "call_ambulance": false,
+    "steps": [
+      "Move to warm shelter.",
+      "Remove wet clothing.",
+      "Wrap in dry blankets.",
+      "Warm chest and neck.",
+      "Give warm drinks if alert.",
+      "Handle very gently."
+    ],
+    "estimated_time_minutes": 30,
+    "condition": "hypothermia",
+    "warn_message": "",
+    "next_question": "Are they confused, very drowsy, or shivering stopped?"
+  },
+  "allergic_reaction_mild": {
+    "severity": "minor",
+    "call_ambulance": false,
+    "steps": [
+      "Move away from trigger.",
+      "Wash exposed skin.",
+      "Use antihistamine if allowed.",
+      "Apply cold compress.",
+      "Watch for breathing trouble.",
+      "Seek help if swelling spreads."
+    ],
+    "estimated_time_minutes": 0,
+    "condition": "allergic_reaction_mild",
+    "warn_message": "",
+    "next_question": ""
+  }
+}
