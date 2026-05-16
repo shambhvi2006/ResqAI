@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { HelpCircle, MessageSquare } from "lucide-react";
 import { useSession } from "../context/SessionContext.jsx";
 
 const LANGUAGES = [
@@ -18,6 +19,8 @@ const EMERGENCIES = [
   { value: "unconscious", label: "Unconscious" },
   { value: "poisoning", label: "Poisoning" },
   { value: "cardiac", label: "Cardiac" },
+  { value: "other_describe", label: "Other / Describe", icon: MessageSquare, immediate: true },
+  { value: "not_sure", label: "Not sure", icon: HelpCircle, immediate: true },
 ];
 
 export default function LanguageSelect() {
@@ -28,6 +31,20 @@ export default function LanguageSelect() {
   const handleStart = () => {
     dispatch({ type: "SET_LANGUAGE", payload: selected });
     dispatch({ type: "SET_EMERGENCY", payload: selectedEmergency });
+    dispatch({ type: "SET_PHASE", payload: "wound" });
+  };
+
+  const handleEmergencyTap = (emergency) => {
+    if (!emergency.immediate) {
+      setSelectedEmergency(emergency.value);
+      return;
+    }
+
+    dispatch({ type: "SET_LANGUAGE", payload: selected });
+    dispatch({
+      type: "SET_EMERGENCY",
+      payload: emergency.value === "other_describe" ? null : emergency.value,
+    });
     dispatch({ type: "SET_PHASE", payload: "wound" });
   };
 
@@ -175,18 +192,22 @@ export default function LanguageSelect() {
           {EMERGENCIES.map((emergency) => (
             <button
               key={emergency.value}
-              onClick={() => setSelectedEmergency(emergency.value)}
+              onClick={() => handleEmergencyTap(emergency)}
               style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
                 minHeight: 56,
                 padding: "14px 12px",
                 borderRadius: "var(--radius-sm)",
-                border: selectedEmergency === emergency.value
+                border: !emergency.immediate && selectedEmergency === emergency.value
                   ? "1px solid var(--green-primary)"
                   : "1px solid var(--border)",
-                background: selectedEmergency === emergency.value
+                background: !emergency.immediate && selectedEmergency === emergency.value
                   ? "var(--green-subtle)"
                   : "var(--bg-secondary)",
-                color: selectedEmergency === emergency.value
+                color: !emergency.immediate && selectedEmergency === emergency.value
                   ? "var(--green-primary)"
                   : "var(--text-primary)",
                 fontSize: 15,
@@ -197,6 +218,7 @@ export default function LanguageSelect() {
                 transition: "all 0.15s ease",
               }}
             >
+              {emergency.icon && <emergency.icon size={18} strokeWidth={2.2} />}
               {emergency.label}
             </button>
           ))}

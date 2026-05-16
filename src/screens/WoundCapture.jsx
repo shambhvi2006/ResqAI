@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Camera } from "lucide-react";
+import { useSession } from "../context/SessionContext.jsx";
 import { triageEmergency } from "../services/gemmaService";
 
 const RESOURCE_QUESTION =
@@ -13,7 +14,9 @@ const statusText = {
   listening: "Listening...",
   thinking: "ResqAI is assessing...",
   speaking: "Speaking guidance...",
+  confirming: "Confirm what ResqAI heard",
   waiting: "Waiting for your response...",
+  "mic-denied": "Microphone access denied",
   resources: "Choose what is available nearby",
   metronome: "CPR rhythm guide running",
 };
@@ -69,7 +72,69 @@ function needsCprGuide(result) {
   return condition === "cardiac_arrest" || steps.includes("compressions");
 }
 
+function sanitizeBareHandsSteps(steps) {
+  return steps.map((step) => {
+    const text = String(step || "");
+    if (!/(cloth|gauze|bandage|dressing|suppl|medical item|sterile|pad)/i.test(text)) {
+      return text;
+    }
+
+    if (/press|pressure|bleed|blood|wound/i.test(text)) {
+      return "Press directly with your bare hand.";
+    }
+
+    if (/cover|wrap|protect/i.test(text)) {
+      return "Keep your bare hand over the injury.";
+    }
+
+    if (/clean|rinse|wash/i.test(text)) {
+      return "Do not search for supplies.";
+    }
+
+    return "Continue using only bare hands.";
+  });
+}
+
+function isTranscriptTriageable(text) {
+  const cleaned = text?.trim().toLowerCase();
+
+  if (!cleaned || cleaned.length < 8) return false;
+
+  const emergencyKeywords = [
+    "cut",
+    "bleeding",
+    "blood",
+    "wound",
+    "burn",
+    "fracture",
+    "broken",
+    "pain",
+    "injury",
+    "hurt",
+    "fell",
+    "fall",
+    "unconscious",
+    "not breathing",
+    "choking",
+    "chest pain",
+    "accident",
+    "crash",
+    "swelling",
+    "sprain",
+    "head",
+    "arm",
+    "leg",
+    "hand",
+    "finger",
+    "foot",
+    "face",
+  ];
+
+  return emergencyKeywords.some((word) => cleaned.includes(word));
+}
+
 export default function WoundCapture() {
+  const { emergencyType } = useSession();
   const [appState, setAppState] = useState("idle");
   const [conversationPhase, setConversationPhase] = useState("initial");
   const [currentSteps, setCurrentSteps] = useState([]);
@@ -85,12 +150,19 @@ export default function WoundCapture() {
   const [metronomeRunning, setMetronomeRunning] = useState(false);
   const [thumbnailUrl, setThumbnailUrl] = useState("");
   const [imageReady, setImageReady] = useState(false);
+  const [availableResources, setAvailableResources] = useState("");
+  const [transcriptError, setTranscriptError] = useState("");
+  const [showMicFallback, setShowMicFallback] = useState(false);
+  const [micFallbackText, setMicFallbackText] = useState("");
 
   const recognitionRef = useRef(null);
   const fileInputRef = useRef(null);
   const mountedRef = useRef(false);
   const timeoutRef = useRef(null);
   const confirmationTimerRef = useRef(null);
+  const listeningFallbackTimerRef = useRef(null);
+  const recognitionStartTimerRef = useRef(null);
+  const hasProcessedRef = useRef(false);
   const runIdRef = useRef(0);
   const stateRef = useRef("idle");
   const stepsRef = useRef([]);
@@ -98,6 +170,7 @@ export default function WoundCapture() {
   const originalScenarioRef = useRef("");
   const inputPurposeRef = useRef("initial");
   const cprGuideRef = useRef(false);
+  const availableResourcesRef = useRef("");
   const thumbnailUrlRef = useRef("");
   const imageBase64Ref = useRef("");
   const confirmTranscriptRef = useRef(null);
@@ -110,6 +183,10 @@ export default function WoundCapture() {
     stepsRef.current = currentSteps;
   }, [currentSteps]);
 
+  useEffect(() => {
+    availableResourcesRef.current = availableResources;
+  }, [availableResources]);
+
   const clearAdvanceTimer = useCallback(() => {
     if (timeoutRef.current) {
       window.clearTimeout(timeoutRef.current);
@@ -121,6 +198,20 @@ export default function WoundCapture() {
     if (confirmationTimerRef.current) {
       window.clearTimeout(confirmationTimerRef.current);
       confirmationTimerRef.current = null;
+    }
+  }, []);
+
+  const clearListeningFallbackTimer = useCallback(() => {
+    if (listeningFallbackTimerRef.current) {
+      window.clearTimeout(listeningFallbackTimerRef.current);
+      listeningFallbackTimerRef.current = null;
+    }
+  }, []);
+
+  const clearRecognitionStartTimer = useCallback(() => {
+    if (recognitionStartTimerRef.current) {
+      window.clearTimeout(recognitionStartTimerRef.current);
+      recognitionStartTimerRef.current = null;
     }
   }, []);
 
@@ -167,36 +258,89 @@ export default function WoundCapture() {
       inputPurposeRef.current = purpose;
       clearAdvanceTimer();
       clearConfirmationTimer();
+      clearListeningFallbackTimer();
+      clearRecognitionStartTimer();
       stopMetronome();
       window.speechSynthesis?.cancel();
-      recognitionRef.current?.abort?.();
-
-      const recognition = new SpeechRecognition();
-      recognition.lang = navigator.language;
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.onstart = () => mountedRef.current && setAppState("listening");
-      recognition.onresult = (event) => {
-        const spokenText = event.results?.[0]?.[0]?.transcript?.trim() || "";
-        if (!spokenText) return;
-        setTranscript(spokenText);
-        confirmTranscriptRef.current?.(spokenText);
-      };
-      recognition.onerror = () => {
-        if (mountedRef.current && stateRef.current === "listening") setAppState("idle");
-      };
-      recognition.onend = () => {
-        if (mountedRef.current && stateRef.current === "listening") setAppState("idle");
-      };
-
-      recognitionRef.current = recognition;
-      try {
-        recognition.start();
-      } catch {
-        setAppState("idle");
+      if (recognitionRef.current) {
+        recognitionRef.current.onresult = null;
+        recognitionRef.current.onerror = null;
+        recognitionRef.current.onend = null;
+        recognitionRef.current.abort();
       }
+      hasProcessedRef.current = false;
+      setShowMicFallback(false);
+      setMicFallbackText("");
+      setAppState("listening");
+
+      listeningFallbackTimerRef.current = window.setTimeout(() => {
+        if (mountedRef.current && stateRef.current === "listening" && !hasProcessedRef.current) {
+          setShowMicFallback(true);
+        }
+      }, 8000);
+
+      recognitionStartTimerRef.current = window.setTimeout(() => {
+        if (!mountedRef.current || stateRef.current !== "listening") return;
+
+        const recognition = new SpeechRecognition();
+        recognition.lang = navigator.language || "en-GB";
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        recognition.onresult = (event) => {
+          if (hasProcessedRef.current) return;
+          if (!event.results?.[0]?.isFinal) return;
+          const spokenText = event.results[0][0].transcript;
+          if (!spokenText || spokenText.trim().length < 2) return;
+          hasProcessedRef.current = true;
+          clearListeningFallbackTimer();
+          setShowMicFallback(false);
+          window.speechSynthesis?.cancel();
+          recognition.abort();
+          setTranscript(spokenText);
+          setAppState("confirming");
+          confirmTranscriptRef.current?.(spokenText);
+        };
+
+        recognition.onerror = (event) => {
+          if (event.error === "no-speech") {
+            if (mountedRef.current && stateRef.current === "listening" && !hasProcessedRef.current) {
+              recognition.onend = null;
+              startListening(inputPurposeRef.current);
+            }
+            return;
+          }
+          if (event.error === "not-allowed") {
+            clearListeningFallbackTimer();
+            setShowMicFallback(false);
+            setAppState("mic-denied");
+            return;
+          }
+          console.log("Speech error:", event.error);
+        };
+
+        recognition.onend = () => {
+          if (mountedRef.current && stateRef.current === "listening" && !hasProcessedRef.current) {
+            startListening(inputPurposeRef.current);
+          }
+        };
+
+        recognitionRef.current = recognition;
+        try {
+          recognition.start();
+        } catch {
+          setAppState("idle");
+        }
+      }, 800);
     },
-    [clearAdvanceTimer, clearConfirmationTimer, stopMetronome]
+    [
+      clearAdvanceTimer,
+      clearConfirmationTimer,
+      clearListeningFallbackTimer,
+      clearRecognitionStartTimer,
+      stopMetronome,
+    ]
   );
 
   const askResources = useCallback(
@@ -280,12 +424,16 @@ export default function WoundCapture() {
     async (message, options = {}) => {
       const stage = options.stage || "initial";
       const image = options.image;
+      const resourceContext = options.availableResources ?? availableResourcesRef.current;
+      const preStepMessage = options.preStepMessage;
+      const bareHandsOnly = options.bareHandsOnly || /nothing|no supplies|bare hands only/i.test(resourceContext);
       const runId = runIdRef.current + 1;
       runIdRef.current = runId;
       clearAdvanceTimer();
       clearConfirmationTimer();
       stopMetronome();
       setShowConfirmation(false);
+      setTranscriptError("");
       setResourceQuestionVisible(false);
       setFollowUpQuestion("");
       if (stage === "initial") {
@@ -301,12 +449,12 @@ export default function WoundCapture() {
       setAppState("thinking");
 
       try {
-        const result = await triageEmergency(message, image);
+        const result = await triageEmergency(message, image, stage === "initial" ? undefined : resourceContext);
         if (!mountedRef.current || runId !== runIdRef.current) return;
 
         if (image) clearImage();
 
-        const steps = result.steps || [];
+        const steps = bareHandsOnly ? sanitizeBareHandsSteps(result.steps || []) : result.steps || [];
         nextQuestionRef.current = result.next_question || "";
         setSeverity(result.severity);
 
@@ -334,6 +482,11 @@ export default function WoundCapture() {
           speakAndAdvance(0, stage);
         };
 
+        if (preStepMessage) {
+          speakText(preStepMessage, beginSteps);
+          return;
+        }
+
         if (result.warn_message) {
           speakText(result.warn_message, beginSteps);
         } else {
@@ -354,9 +507,11 @@ export default function WoundCapture() {
     (heardText) => {
       const purpose = inputPurposeRef.current;
       if (purpose === "resources") {
+        setAvailableResources(heardText);
+        availableResourcesRef.current = heardText;
         runTriage(
           `Original emergency: ${originalScenarioRef.current}. Available resources: ${heardText}. Adjust steps based on what they have.`,
-          { stage: "refined" }
+          { stage: "refined", availableResources: heardText }
         );
         return;
       }
@@ -364,6 +519,7 @@ export default function WoundCapture() {
       if (purpose === "followup") {
         runTriage(`Original emergency: ${originalScenarioRef.current}. Additional info: ${heardText}`, {
           stage: "refined",
+          availableResources: availableResourcesRef.current,
         });
         return;
       }
@@ -376,28 +532,52 @@ export default function WoundCapture() {
 
   const confirmTranscript = useCallback(
     (heardText) => {
+      recognitionRef.current?.stop?.();
       clearConfirmationTimer();
-      setConfirmationTranscript(heardText);
-      setShowConfirmation(true);
-      speakText(`I heard: ${heardText}. Starting assessment.`);
-      confirmationTimerRef.current = window.setTimeout(() => {
-        if (!mountedRef.current) return;
+      window.speechSynthesis?.cancel();
+      const cleanedText = heardText?.trim() || "";
+      const requiresEmergencyDescription = inputPurposeRef.current === "initial";
+
+      if (requiresEmergencyDescription && !isTranscriptTriageable(cleanedText)) {
+        setConfirmationTranscript("");
         setShowConfirmation(false);
-        proceedWithTranscript(heardText);
-      }, 3000);
+        setTranscriptError("Please describe the emergency or injury with a little more detail.");
+        setAppState("waiting");
+        speakText("Please describe the emergency or injury with a little more detail.", () => {
+          if (mountedRef.current) startListening("initial");
+        });
+        return;
+      }
+
+      setTranscriptError("");
+      setConfirmationTranscript(cleanedText);
+      setShowConfirmation(true);
+      setAppState("confirming");
+      speakText(`I heard: ${cleanedText}. Tap confirm or say again.`);
     },
-    [clearConfirmationTimer, proceedWithTranscript, speakText]
+    [clearConfirmationTimer, speakText, startListening]
   );
 
   useEffect(() => {
     confirmTranscriptRef.current = confirmTranscript;
   }, [confirmTranscript]);
 
+  const acceptConfirmation = () => {
+    clearConfirmationTimer();
+    const heardText = confirmationTranscript;
+    setShowConfirmation(false);
+    proceedWithTranscript(heardText);
+  };
+
   const restartForCorrection = () => {
     clearConfirmationTimer();
     setShowConfirmation(false);
     setConfirmationTranscript("");
-    startListening(inputPurposeRef.current);
+    setTranscriptError("");
+    recognitionRef.current?.abort?.();
+    speakText("Please describe the emergency again", () => {
+      if (mountedRef.current) startListening(inputPurposeRef.current);
+    });
   };
 
   const handleTypedSubmit = () => {
@@ -413,15 +593,42 @@ export default function WoundCapture() {
     confirmTranscript(text);
   };
 
+  const handleMicFallbackSubmit = () => {
+    const text = micFallbackText.trim();
+    if (!text) return;
+    hasProcessedRef.current = true;
+    clearListeningFallbackTimer();
+    recognitionRef.current?.abort?.();
+    setShowMicFallback(false);
+    setMicFallbackText("");
+    setTranscript(text);
+    setAppState("confirming");
+    confirmTranscript(text);
+  };
+
   const handleDescribeResources = () => {
     inputPurposeRef.current = "resources";
     startListening("resources");
   };
 
   const handleNothingAvailable = () => {
+    const resources = "absolutely nothing available, no medical supplies, no cloth, no bandages, bare hands only";
+    const message = `Original emergency: ${originalScenarioRef.current}. The person has NO supplies available at all — no cloth, no gauze, no bandages, nothing. Rewrite all steps using ONLY bare hands. Do not mention cloth, gauze, dressings, or any supplies in any step.`;
+    setAvailableResources(resources);
+    availableResourcesRef.current = resources;
+    stepsRef.current = [];
+    setCurrentSteps([]);
+    setCurrentStepIndex(0);
+    setShowCprGuide(false);
+    cprGuideRef.current = false;
     runTriage(
-      `Original emergency: ${originalScenarioRef.current}. No medical supplies available. Give steps using only hands and no equipment.`,
-      { stage: "refined" }
+      message,
+      {
+        stage: "refined",
+        availableResources: resources,
+        preStepMessage: "Adapting instructions for no supplies available",
+        bareHandsOnly: true,
+      }
     );
   };
 
@@ -439,11 +646,14 @@ export default function WoundCapture() {
     try {
       const image = await compressImage(file);
       if (!mountedRef.current) return;
+      const resources = "photo or video of the emergency scene and visible supplies";
+      setAvailableResources(resources);
+      availableResourcesRef.current = resources;
       imageBase64Ref.current = image;
       setImageReady(false);
       runTriage(
         "Here is the emergency scene. Refine guidance based on what you can see and what supplies are visible.",
-        { stage: "refined", image }
+        { stage: "refined", image, availableResources: resources }
       );
     } catch {
       clearImage();
@@ -474,18 +684,60 @@ export default function WoundCapture() {
     mountedRef.current = true;
     window.speechSynthesis?.getVoices?.();
     window.speechSynthesis?.addEventListener?.("voiceschanged", getPreferredVoice);
-    startListening("initial");
+    const micRequest = navigator.mediaDevices?.getUserMedia?.({ audio: true });
+
+    if (!micRequest) {
+      setAppState("mic-denied");
+      return () => {
+        mountedRef.current = false;
+        clearAdvanceTimer();
+        clearConfirmationTimer();
+        clearListeningFallbackTimer();
+        clearRecognitionStartTimer();
+        clearImage();
+        recognitionRef.current?.abort?.();
+        window.speechSynthesis?.cancel();
+        window.speechSynthesis?.removeEventListener?.("voiceschanged", getPreferredVoice);
+      };
+    }
+
+    micRequest
+      .then((stream) => {
+        stream.getTracks().forEach((track) => track.stop());
+        if (!mountedRef.current) return;
+        if (emergencyType === "not_sure") {
+          speakText("Describe what you can see happening and I will assess it", () => {
+            if (mountedRef.current) startListening("initial");
+          });
+        } else {
+          startListening("initial");
+        }
+      })
+      .catch(() => {
+        if (mountedRef.current) setAppState("mic-denied");
+      });
 
     return () => {
       mountedRef.current = false;
       clearAdvanceTimer();
       clearConfirmationTimer();
+      clearListeningFallbackTimer();
+      clearRecognitionStartTimer();
       clearImage();
       recognitionRef.current?.abort?.();
       window.speechSynthesis?.cancel();
       window.speechSynthesis?.removeEventListener?.("voiceschanged", getPreferredVoice);
     };
-  }, [clearAdvanceTimer, clearConfirmationTimer, clearImage, startListening]);
+  }, [
+    clearAdvanceTimer,
+    clearConfirmationTimer,
+    clearImage,
+    clearListeningFallbackTimer,
+    clearRecognitionStartTimer,
+    emergencyType,
+    speakText,
+    startListening,
+  ]);
 
   const visibleStatus =
     appState === "speaking"
@@ -505,10 +757,36 @@ export default function WoundCapture() {
       </section>
 
       {showConfirmation && (
-        <div className="card" style={{ display: "grid", gap: 10, marginBottom: 12 }}>
-          <strong style={{ lineHeight: 1.4 }}>I heard: {confirmationTranscript}</strong>
-          <button type="button" className="btn btn--secondary" onClick={restartForCorrection}>
-            That's wrong - re-speak
+        <div className="confirmation-card">
+          <div>
+            <span>I heard:</span>
+            <strong>{confirmationTranscript}</strong>
+          </div>
+          <div className="confirmation-actions">
+            <button type="button" className="confirmation-button confirmation-button--yes" onClick={acceptConfirmation}>
+              ✓ Yes, that's right
+            </button>
+            <button type="button" className="confirmation-button confirmation-button--redo" onClick={restartForCorrection}>
+              ↺ Re-record
+            </button>
+          </div>
+        </div>
+      )}
+
+      {transcriptError && (
+        <div className="alert alert--warning" style={{ marginBottom: 12 }}>
+          {transcriptError}
+        </div>
+      )}
+
+      {appState === "mic-denied" && (
+        <div className="card" style={{ display: "grid", gap: 12, marginBottom: 12 }}>
+          <strong>Microphone access denied.</strong>
+          <p style={{ color: "var(--text-secondary)", lineHeight: 1.5 }}>
+            Please allow microphone access in your browser settings and refresh the page.
+          </p>
+          <button type="button" className="btn btn--secondary" onClick={() => window.location.reload()}>
+            Refresh page
           </button>
         </div>
       )}
@@ -606,6 +884,19 @@ export default function WoundCapture() {
         )}
         {appState === "listening" ? <Waveform active /> : <Waveform />}
         {appState !== "listening" && <div className="badge">{visibleStatus}</div>}
+        {showMicFallback && (
+          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 8, width: "100%" }}>
+            <input
+              className="text-input"
+              value={micFallbackText}
+              onChange={(event) => setMicFallbackText(event.target.value)}
+              placeholder="Type here if mic isn't working"
+            />
+            <button type="button" className="btn btn--secondary compact-btn" onClick={handleMicFallbackSubmit}>
+              Send
+            </button>
+          </div>
+        )}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16 }}>
           <input
             id="camera-input"
